@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${pageTitle}">お問い合わせ</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header class="site-header">
+		<div class="logo">制作物紹介ポートフォリオ</div>
+		<nav>
+			<a th:href="@{/}">ホーム</a>
+			<a th:href="@{/about}">このサイトについて</a>
+			<a th:href="@{/apps}">アプリ紹介</a>
+			<a th:href="@{/learning}">学習記録</a>
+			<a th:href="@{/contact}">お問い合わせ</a>
+		</nav>
+	</header>
+
+	<main class="container">
+
+		<div class="breadcrumb">
+			<span th:each="item, stat : ${breadcrumbs}">
+				<span th:text="${item}"></span>
+				<span th:if="${!stat.last}"> → </span>
+			</span>
+		</div>
+
+		<section class="page-heading">
+			<h1>お問い合わせ・感想フォーム</h1>
+			<p>
+				このページでは、ポートフォリオサイトや制作物への感想を送信できるフォームを作成する予定です。
+				現在は画面構成を作成中です。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>フォーム</h2>
+
+			<form class="contact-form" action="#" method="get">
+				<label for="name">お名前</label>
+				<input type="text" id="name" name="name" placeholder="例：山田 太郎">
+
+				<label for="email">メールアドレス</label>
+				<input type="email" id="email" name="email" placeholder="例：sample@example.com">
+
+				<label for="subject">件名</label>
+				<input type="text" id="subject" name="subject" placeholder="例：ポートフォリオについて">
+
+				<label for="message">メッセージ</label>
+				<textarea id="message" name="message" rows="6" placeholder="感想やお問い合わせ内容を入力してください"></textarea>
+
+				<button type="submit" class="main-button">送信する</button>
+			</form>
+		</section>
+
+	</main>
+
+</body>
+
+</html>

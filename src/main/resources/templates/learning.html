@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${pageTitle}">学習記録</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header class="site-header">
+		<div class="logo">制作物紹介ポートフォリオ</div>
+		<nav>
+			<a th:href="@{/}">ホーム</a>
+			<a th:href="@{/about}">このサイトについて</a>
+			<a th:href="@{/apps}">アプリ紹介</a>
+			<a th:href="@{/learning}">学習記録</a>
+			<a th:href="@{/contact}">お問い合わせ</a>
+		</nav>
+	</header>
+
+	<main class="container">
+
+		<div class="breadcrumb">
+			<span th:each="item, stat : ${breadcrumbs}">
+				<span th:text="${item}"></span>
+				<span th:if="${!stat.last}"> → </span>
+			</span>
+		</div>
+
+		<section class="page-heading">
+			<h1>学習記録</h1>
+			<p>
+				職業訓練や個人制作を通して学んだ内容をまとめています。
+				単に学んだ技術名だけでなく、制作物のどこで活かしたかも整理しています。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Java</h2>
+			<p>
+				基本文法、オブジェクト指向、コレクション、ファイル入出力などを学習しました。
+				照明機材管理アプリやStage Layout Designerの制作で活用しています。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Java Swing</h2>
+			<p>
+				デスクトップアプリの画面作成、ボタン操作、マウス操作、描画処理などを学びました。
+				Stage Layout Designerでは、機材の配置、ドラッグ移動、グリッド表示などに使用しています。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Servlet / JSP</h2>
+			<p>
+				リクエスト処理、画面遷移、フォーム処理、スコープ、MVCの基本を学びました。
+				Webアプリケーションの基本的な流れを理解するための土台になっています。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Spring Framework / Spring Boot</h2>
+			<p>
+				現在、このポートフォリオサイトの制作を通して学習しています。
+				ControllerでURLを受け取り、Thymeleafで画面を表示する構成を実装しています。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Python / Flask</h2>
+			<p>
+				映画検索Webアプリの制作で使用しました。
+				APIを利用した映画検索や、Web画面での表示処理を学びました。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Git / GitHub</h2>
+			<p>
+				制作物の履歴管理や公開に使用しています。
+				変更内容をコミットし、GitHub上でソースコードを公開できるようにしています。
+			</p>
+		</section>
+
+	</main>
+
+</body>
+
+</html>

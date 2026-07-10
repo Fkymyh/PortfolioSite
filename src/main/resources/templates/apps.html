@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${pageTitle}">アプリ紹介</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header class="site-header">
+		<div class="logo">制作物紹介ポートフォリオ</div>
+		<nav>
+			<a th:href="@{/}">ホーム</a>
+			<a th:href="@{/about}">このサイトについて</a>
+			<a th:href="@{/apps}">アプリ紹介</a>
+			<a th:href="@{/learning}">学習記録</a>
+			<a th:href="@{/contact}">お問い合わせ</a>
+		</nav>
+	</header>
+
+	<main class="container">
+
+		<div class="breadcrumb">
+			<span th:each="item, stat : ${breadcrumbs}">
+				<span th:text="${item}"></span>
+				<span th:if="${!stat.last}"> → </span>
+			</span>
+		</div>
+
+		<section class="page-heading">
+			<h1>アプリ紹介</h1>
+			<p>
+				職業訓練や個人学習の中で制作したアプリを紹介します。
+				それぞれの制作背景、使用技術、工夫した点をまとめています。
+			</p>
+		</section>
+
+		<section class="app-list">
+
+			<div class="app-card">
+				<div class="app-card-text">
+					<p class="app-label">Java / Swing</p>
+					<p class="status-badge">リリース済み</p>
+					<h2>Stage Layout Designer</h2>
+					<p>
+						学生団体やイベント現場で使いやすい、ステージ仕込み図作成アプリです。
+						機材をドラッグして配置し、会場レイアウトを視覚的に作成できます。
+					</p>
+					<a class="main-button" th:href="@{/apps/stage-layout}">詳しく見る</a>
+					<a class="sub-button" href="https://github.com/Fkymyh/StageLayout-Designer" target="_blank">GitHub</a>
+					<a class="sub-button" href="https://github.com/Fkymyh/StageLayout-Designer/releases/latest" target="_blank">ダウンロード</a>
+				</div>
+			</div>
+
+			<div class="app-card">
+				<div class="app-card-text">
+					<p class="app-label">Java</p>
+					<p class="status-badge status-progress">開発中</p>
+					<h2>照明機材管理アプリ</h2>
+					<p>
+						照明機材の管理を想定して制作したアプリです。
+						機材一覧、検索、現場ごとの機材登録などを行えるようにしました。
+						現在はアプリ化前のため、ソースコードをGitHubで公開しています。
+					</p>
+					<a class="sub-button" href="https://github.com/Fkymyh/LightingManagementGUI" target="_blank">GitHub</a>
+				</div>
+			</div>
+
+			<div class="app-card">
+				< class="app-card-text">
+					<p class="app-label">Python / Flask</p>
+					<p class="status-badge status-progress">起動して利用可能</p>
+					<h2>映画検索Webアプリ</h2>
+					<p>
+						映画検索APIを使って、映画情報の検索やお気に入り管理を行うWebアプリです。
+						            自分の好きな映画という関心から制作しました。
+						            実行環境を用意して起動することで動作します。
+					</p>
+					<a class="sub-button" href="https://github.com/Fkymyh/movie-manager" target="_blank">GitHub</a>
+				</div>
+			</div>
+
+
+		</section>
+
+	</main>
+
+</body>
+
+</html>

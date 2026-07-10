@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${pageTitle}">このサイトについて</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header class="site-header">
+		<div class="logo">制作物紹介ポートフォリオ</div>
+		<nav>
+			<a th:href="@{/}">ホーム</a>
+			<a th:href="@{/about}">このサイトについて</a>
+			<a th:href="@{/apps}">アプリ紹介</a>
+			<a th:href="@{/learning}">学習記録</a>
+			<a th:href="@{/contact}">お問い合わせ</a>
+		</nav>
+	</header>
+
+	<main class="container">
+
+		<div class="breadcrumb">
+			<span th:each="item, stat : ${breadcrumbs}">
+				<span th:text="${item}"></span>
+				<span th:if="${!stat.last}"> → </span>
+			</span>
+		</div>
+
+		<section class="page-heading">
+			<h1>このサイトについて</h1>
+			<p>
+				このサイトは、これまで制作したアプリや学習内容をまとめるために制作したポートフォリオサイトです。
+				会社の方が見たときに、どのような目的でアプリを作り、どのような技術を学んできたのかが分かることを目指しています。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>制作の目的</h2>
+			<p>
+				職業訓練で学んだJava、Servlet/JSP、Spring Framework、Pythonなどの内容を、
+				単なる学習記録として終わらせるのではなく、実際の制作物として整理するためにこのサイトを作りました。
+			</p>
+			<p>
+				また、Java Swingで制作したデスクトップアプリや、Pythonで制作したWebアプリをまとめて紹介できる場所としても活用します。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>制作で意識していること</h2>
+			<ul>
+				<li>見た人が迷わない分かりやすい画面構成</li>
+				<li>白を基調にした読みやすいデザイン</li>
+				<li>現在位置が分かるパンくずリストの表示</li>
+				<li>制作背景や工夫した点が伝わる説明</li>
+				<li>過度なアニメーションよりも使いやすさを重視</li>
+			</ul>
+		</section>
+
+		<section class="content-section">
+			<h2>今後の方針</h2>
+			<p>
+				まずは制作アプリの紹介ページを整え、その後、お問い合わせフォームや学習記録の管理機能などを追加していく予定です。
+				Spring Bootを使いながら、Webアプリケーションの基本的な構成を学んでいきます。
+			</p>
+		</section>
+
+	</main>
+
+</body>
+
+</html>

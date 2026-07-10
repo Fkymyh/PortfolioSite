@@ -1,65 +1,68 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <title th:text="${pageTitle}">制作物紹介ポートフォリオ</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+	<meta charset="UTF-8">
+	<title th:text="${pageTitle}">制作物紹介ポートフォリオ</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
 <body>
 
-<header class="site-header">
-    <div class="logo">制作物紹介ポートフォリオ</div>
-    <nav>
-        <a th:href="@{/}">ホーム</a>
-        <a th:href="@{/about}">このサイトについて</a>
-        <a th:href="@{/apps}">アプリ紹介</a>
-        <a th:href="@{/learning}">学習記録</a>
-        <a th:href="@{/contact}">お問い合わせ</a>
-    </nav>
-</header>
+	<header class="site-header">
+		<div class="logo">制作物紹介ポートフォリオ</div>
+		<nav>
+			<a th:href="@{/}">ホーム</a>
+			<a th:href="@{/about}">このサイトについて</a>
+			<a th:href="@{/apps}">アプリ紹介</a>
+			<a th:href="@{/learning}">学習記録</a>
+			<a th:href="@{/contact}">お問い合わせ</a>
+		</nav>
+	</header>
 
-<main class="container">
+	<main class="container">
 
-    <div class="breadcrumb">
-        <span th:each="item, stat : ${breadcrumbs}">
-            <span th:text="${item}"></span>
-            <span th:if="${!stat.last}"> → </span>
-        </span>
-    </div>
+		<div class="breadcrumb">
+			<span th:each="item, stat : ${breadcrumbs}">
+				<span th:text="${item}"></span>
+				<span th:if="${!stat.last}"> → </span>
+			</span>
+		</div>
 
-    <section class="hero">
-        <h1>制作物紹介ポートフォリオ</h1>
-        <p>
-            これまで制作したアプリや、職業訓練で学んだ内容をまとめたポートフォリオサイトです。
-        </p>
-        <a class="main-button" th:href="@{/apps}">制作アプリを見る</a>
-    </section>
+		<section class="hero">
+			<h1>制作物紹介ポートフォリオ</h1>
+			<p>
+				これまで制作したアプリや、職業訓練で学んだ内容をまとめたポートフォリオサイトです。
+			</p>
+			<a class="main-button" th:href="@{/apps}">制作アプリを見る</a>
+		</section>
 
-    <section>
-        <h2>主な制作物</h2>
+		<section>
+			<h2>主な制作物</h2>
 
-        <div class="card-area">
-            <div class="card">
-                <h3>Stage Layout Designer</h3>
-                <p>学生団体向けのステージ仕込み図作成アプリです。</p>
-                <a th:href="@{/apps/stage-layout}">詳しく見る</a>
-            </div>
+			<div class="card-area">
+				<div class="card">
+					<h3>Stage Layout Designer</h3>
+					<p>学生団体向けのステージ仕込み図作成アプリです。</p>
+					<a th:href="@{/apps/stage-layout}">詳しく見る</a>
+				</div>
 
-            <div class="card">
-                <h3>在庫管理アプリ</h3>
-                <p>照明機材の管理を想定して制作したJavaアプリです。</p>
-                <a th:href="@{/apps}">詳しく見る</a>
-            </div>
+				<div class="card">
+					<h3>在庫管理アプリ</h3>
+					<p>照明機材の管理を想定して制作したJavaアプリです。</p>
+					<a th:href="@{/apps}">詳しく見る</a>
+				</div>
 
-            <div class="card">
-                <h3>映画検索Webアプリ</h3>
-                <p>映画検索APIを使って制作したPythonのWebアプリです。</p>
-                <a th:href="@{/apps}">詳しく見る</a>
-            </div>
-        </div>
-    </section>
+				<div class="card">
+					<h3>映画検索Webアプリ</h3>
+					<p>映画検索APIを使って制作したPythonのWebアプリです。</p>
+					<a th:href="@{/apps}">詳しく見る</a>
+				</div>
+			</div>
+		</section>
 
-</main>
+	</main>
 
 </body>
+
 </html>

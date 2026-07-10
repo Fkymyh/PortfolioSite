@@ -88,3 +88,116 @@ nav a:hover {
     color: #0b1f4d;
     font-weight: bold;
 }
+
+.page-heading {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(15, 35, 75, 0.08);
+    margin-bottom: 32px;
+}
+
+.page-heading h1 {
+    color: #0b1f4d;
+    font-size: 34px;
+    margin-top: 0;
+}
+
+.app-list {
+    display: grid;
+    gap: 24px;
+}
+
+.app-card {
+    background-color: #ffffff;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(15, 35, 75, 0.06);
+}
+
+.app-card h2 {
+    color: #0b1f4d;
+    margin-top: 0;
+}
+
+.app-label {
+    color: #1d4ed8;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.content-section {
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(15, 35, 75, 0.06);
+    margin-bottom: 24px;
+}
+
+.content-section h2 {
+    color: #0b1f4d;
+    border-left: 5px solid #0b1f4d;
+    padding-left: 12px;
+}
+
+.content-section li {
+    margin-bottom: 8px;
+}
+
+.sub-button {
+    display: inline-block;
+    border: 1px solid #0b1f4d;
+    color: #0b1f4d;
+    padding: 11px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 16px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+.status-badge {
+    display: inline-block;
+    background-color: #0b1f4d;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+
+.status-progress {
+    background-color: #e8eef8;
+    color: #0b1f4d;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #0b1f4d;
+    margin-top: 8px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    background-color: #ffffff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #0b1f4d;
+    box-shadow: 0 0 0 3px rgba(11, 31, 77, 0.12);
+}
