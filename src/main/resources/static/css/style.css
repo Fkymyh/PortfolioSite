@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic", sans-serif;
+    background-color: #f7f9fc;
+    color: #1f2933;
+}
+
+.site-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dce3ec;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    color: #0b1f4d;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #23395d;
+    font-size: 14px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #637083;
+    margin-bottom: 24px;
+}
+
+.hero {
+    background-color: #ffffff;
+    padding: 48px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(15, 35, 75, 0.08);
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    color: #0b1f4d;
+    font-size: 36px;
+    margin-top: 0;
+}
+
+.main-button {
+    display: inline-block;
+    background-color: #0b1f4d;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 16px;
+}
+
+.card-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(15, 35, 75, 0.06);
+}
+
+.card h3 {
+    color: #0b1f4d;
+    margin-top: 0;
+}
+
+.card a {
+    color: #0b1f4d;
+    font-weight: bold;
+}
