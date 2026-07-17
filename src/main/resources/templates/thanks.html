@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${pageTitle}">送信完了</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header class="site-header">
+		<div class="logo">制作物紹介ポートフォリオ</div>
+		<nav>
+			<a th:href="@{/}">ホーム</a>
+			<a th:href="@{/about}">このサイトについて</a>
+			<a th:href="@{/apps}">アプリ紹介</a>
+			<a th:href="@{/learning}">学習記録</a>
+			<a th:href="@{/contact}">お問い合わせ</a>
+		</nav>
+	</header>
+
+	<main class="container">
+		<div class="breadcrumb">
+			<span th:each="item, stat : ${breadcrumbs}">
+				<span th:text="${item}"></span>
+				<span th:if="${!stat.last}"> → </span>
+			</span>
+		</div>
+		
+		<section class="page-heading">
+			<h1>送信完了</h1>
+			<p>
+				お問い合わせ内容を受け付けました。
+				現在は学習用のため、入力内容を画面に表示しています。
+			</p>
+		</section>
+		
+		<section class="content-section">
+			<h2>送信内容</h2>
+			
+			<p><strong>お名前</strong><span th:text="${contactForm.name}"></span></p>
+			<p><strong>メールアドレス:</strong><span th:text="${contactForm.email}"></span></p>
+			<p><strong>件名:</strong><span th:text="${contactForm.subject}"></span></p>
+			<p><strong>メッセージ</strong></p>
+			<p th:text="${contactForm.message}"></p>
+			
+			<a class="main-button" th:href="@{/}">ホームへ戻る</a>
+			<a class="sub-button" th:href="@{/contact}">もう一度送信する</a>
+		</section>
+	</main>
+
+</body>
+
+</html>

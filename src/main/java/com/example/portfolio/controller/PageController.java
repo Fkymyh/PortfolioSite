@@ -5,6 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.portfolio.form.ContactForm;
 
 @Controller
 public class PageController {
@@ -48,6 +52,18 @@ public class PageController {
     public String contact(Model model) {
         model.addAttribute("pageTitle", "お問い合わせ");
         model.addAttribute("breadcrumbs", List.of("ホーム", "お問い合わせ"));
+        model.addAttribute("contactForm", new ContactForm());
         return "contact";
+    }
+    @PostMapping("/contact")
+    public String sendContact(
+    			@ModelAttribute ContactForm contactForm,
+    			Model model) {
+    	
+    			model.addAttribute("pageTitle", "送信完了");
+    			model.addAttribute("breadcrumbs", List.of("ホーム", "お問い合わせ", "送信完了"));
+    			model.addAttribute("contactForm", contactForm);
+    			
+    			return "thanks";
     }
 }

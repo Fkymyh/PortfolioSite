@@ -40,18 +40,18 @@
 		<section class="content-section">
 			<h2>フォーム</h2>
 
-			<form class="contact-form" action="#" method="get">
+			<form class="contact-form" th:action="@{/contact}" th:object="${contactForm}" method="post">
 				<label for="name">お名前</label>
-				<input type="text" id="name" name="name" placeholder="例：山田 太郎">
+				<input type="text" id="name" th:field="*{name}" placeholder="例：山田 太郎">
 
 				<label for="email">メールアドレス</label>
-				<input type="email" id="email" name="email" placeholder="例：sample@example.com">
+				<input type="email" id="email" th:field="*{email}" placeholder="例：sample@example.com">
 
 				<label for="subject">件名</label>
-				<input type="text" id="subject" name="subject" placeholder="例：ポートフォリオについて">
+				<input type="text" id="subject" th:field="*{subject}" placeholder="例：ポートフォリオについて">
 
 				<label for="message">メッセージ</label>
-				<textarea id="message" name="message" rows="6" placeholder="感想やお問い合わせ内容を入力してください"></textarea>
+				<textarea id="message" th:field="*{message}" rows="6" placeholder="感想やお問い合わせ内容を入力してください"></textarea>
 
 				<button type="submit" class="main-button">送信する</button>
 			</form>
