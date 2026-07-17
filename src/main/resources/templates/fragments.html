@@ -9,13 +9,53 @@
 		</div>
 
 		<nav>
-			<a th:href="@{/}">ホーム</a>
-			<a th:href="@{/about}">このサイトについて</a>
-			<a th:href="@{/apps}">アプリ紹介</a>
-			<a th:href="@{/learning}">学習記録</a>
-			<a th:href="@{/contact}">お問い合わせ</a>
+			<a th:href="@{/}" th:classappend="${currentPage == 'home'} ? 'active'">
+				ホーム
+			</a>
+
+			<a th:href="@{/about}" th:classappend="${currentPage == 'about'} ? 'active'">
+				このサイトについて
+			</a>
+
+			<a th:href="@{/apps}" th:classappend="${currentPage == 'apps'} ? 'active'">
+				アプリ紹介
+			</a>
+
+			<a th:href="@{/learning}" th:classappend="${currentPage == 'learning'} ? 'active'">
+				学習記録
+			</a>
+
+			<a th:href="@{/contact}" th:classappend="${currentPage == 'contact'} ? 'active'">
+				お問い合わせ
+			</a>
 		</nav>
 	</header>
+
+	<nav class="breadcrumb" th:fragment="breadcrumb(breadcrumbs)" aria-label="パンくずリスト">
+
+		<ol class="breadcrumb-list">
+			<li th:each="item, stat : ${breadcrumbs}" class="breadcrumb-item">
+
+				<span th:if="${!stat.last}">
+					<a th:if="${stat.index == 0}" th:href="@{/}" th:text="${item}">
+						ホーム
+					</a>
+
+					<a th:if="${stat.index == 1 and item == 'アプリ紹介'}" th:href="@{/aaps}" th:text="${item}">
+						アプリ紹介
+					</a>
+
+					<span th:unless="${stat.index == 0
+		  			or (stat.index == 1 and item == 'アプリ紹介')}" th:text="${item}">
+					</span>
+				</span>
+
+				<span th:if="${stat.last}" th:text="${item}" aria-curent="page">
+				</span>
+			</li>
+		</ol>
+
+	</nav>
 
 </body>
 

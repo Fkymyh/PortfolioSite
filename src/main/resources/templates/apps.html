@@ -11,14 +11,7 @@
 
 	<header th:replace="~{fragments :: header}"></header>
 
-	<main class="container">
-
-		<div class="breadcrumb">
-			<span th:each="item, stat : ${breadcrumbs}">
-				<span th:text="${item}"></span>
-				<span th:if="${!stat.last}"> → </span>
-			</span>
-		</div>
+	<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
 
 		<section class="page-heading">
 			<h1>アプリ紹介</h1>

@@ -13,12 +13,7 @@
 
 	<main class="container">
 
-		<div class="breadcrumb">
-			<span th:each="item, stat : ${breadcrumbs}">
-				<span th:text="${item}"></span>
-				<span th:if="${!stat.last}"> → </span>
-			</span>
-		</div>
+		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
 
 		<section class="page-heading">
 			<h1>このサイトについて</h1>
@@ -58,7 +53,7 @@
 				Spring Bootを使いながら、Webアプリケーションの基本的な構成を学んでいきます。
 			</p>
 		</section>
-		
+
 		<section class="content-section">
 			<h2>参考にした教材・サイト</h2>
 			<p>
