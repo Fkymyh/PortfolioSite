@@ -38,26 +38,40 @@
 		</section>
 
 		<section>
-			<h2>主な制作物</h2>
+			<h2>主な製作物</h2>
 
 			<div class="card-area">
-				<div class="card">
+
+				<a class="card card-link" th:href="@{/aaps/stage-layout}">
+					<img class="card-image" th:src="@{/images/stage-layout.png}" alt="Stage Layout Designerの画面">
+					<p class="app label">Java/Swing</p>
 					<h3>Stage Layout Designer</h3>
-					<p>学生団体向けのステージ仕込み図作成アプリです。</p>
-					<a th:href="@{/apps/stage-layout}">詳しく見る</a>
-				</div>
+					<p>
+						学生団体やイベント現場向けのステージ仕込み図作成アプリです。
+						機材を配置し、会場layoutを視覚的に作成できます。
+					</p>
+					<span class="card-button">詳しく見る</span>
+				</a>
 
-				<div class="card">
-					<h3>在庫管理アプリ</h3>
-					<p>照明機材の管理を想定して制作したJavaアプリです。</p>
-					<a th:href="@{/apps}">詳しく見る</a>
-				</div>
+				<a class="card card-link" th:href="@{/apps#lighting-management}">
+					<img class="card-image" th:src="@{/images/lighting-management.png}" alt="照明機材管理アプリの画面">
+					<p class="app-label">Java</p>
+					<h3>照明機材管理アプリ</h3>
+					<p>
+						照明機材の一覧管理や検索、現場ごとの機材登録を想定して制作したアプリです。
+					</p>
+					<span class="card-button">詳しく見る</span>
+				</a>
 
-				<div class="card">
+				<a class="card card-link" th:href="@{/apps#movie-manager}">
+					<img class="card-image" th:src="@{/images/movie-manager.png}" alt="映画検索Webアプリの画面">
+					<p class="app-label">Python / Flask</p>
 					<h3>映画検索Webアプリ</h3>
-					<p>映画検索APIを使って制作したPythonのWebアプリです。</p>
-					<a th:href="@{/apps}">詳しく見る</a>
-				</div>
+					<p>
+						映画検索APIを使って、映画情報の検索やお気に入り管理を行うWebアプリです。
+					</p>
+					<span class="card-button">詳しく見る</span>
+				</a>
 			</div>
 		</section>
 
