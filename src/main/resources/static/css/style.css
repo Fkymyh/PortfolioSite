@@ -260,3 +260,11 @@ nav a:hover {
 	}
 }
 
+.detail-image {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 14px;
+    border: 1px solid #dce3ec;
+    margin: 16px 0;
+    box-shadow: 0 6px 20px rgba(15, 35, 75, 0.08);
+}
