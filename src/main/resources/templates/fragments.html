@@ -9,23 +9,23 @@
 		</div>
 
 		<nav class="header-nav" aria-label="メインナビゲーション">
-			<a th:href="@{/}" th:classappend="${currentPage == 'home'} ? 'active'">
+			<a th:href="@{/}" th:classappend="${currentPage != null and currentPage == 'home'} ? 'active'">
 				ホーム
 			</a>
 
-			<a th:href="@{/about}" th:classappend="${currentPage == 'about'} ? 'active'">
+			<a th:href="@{/about}" th:classappend="${currentPage != null and currentPage == 'about'} ? 'active'">
 				このサイトについて
 			</a>
 
-			<a th:href="@{/apps}" th:classappend="${currentPage == 'apps'} ? 'active'">
+			<a th:href="@{/apps}" th:classappend="${currentPage != null and currentPage == 'apps'} ? 'active'">
 				アプリ紹介
 			</a>
 
-			<a th:href="@{/learning}" th:classappend="${currentPage == 'learning'} ? 'active'">
+			<a th:href="@{/learning}" th:classappend="${currentPage != null and currentPage == 'learning'} ? 'active'">
 				学習記録
 			</a>
 
-			<a th:href="@{/contact}" th:classappend="${currentPage == 'contact'} ? 'active'">
+			<a th:href="@{/contact}" th:classappend="${currentPage != null and currentPage == 'contact'} ? 'active'">
 				お問い合わせ
 			</a>
 		</nav>

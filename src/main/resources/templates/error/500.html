@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>エラーが発生しました</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header th:replace="~{fragments :: header}"></header>
+
+	<main class="container">
+		<section class="error-page">
+			<p class="error-code">500</p>
+
+			<h1>エラーが発生しました</h1>
+
+			<p>
+				申し訳ありません。処理中に問題が発生しました。
+				時間をおいてから、もう一度お試しください。
+			</p>
+
+			<div class="error-actions">
+				<a class="main-button" th:href="@{/}">
+					ホームへ戻る
+				</a>
+			</div>
+		</section>
+	</main>
+
+	<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

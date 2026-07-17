@@ -422,3 +422,55 @@ nav a:hover {
 .header-nav a:hover{
 	color: #0b1f4d;
 }
+
+.error-page {
+    max-width: 720px;
+    margin: 64px auto;
+    padding: 64px 40px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(15, 35, 75, 0.08);
+}
+
+.error-code {
+    margin: 0;
+    color: #365b91;
+    font-size: 72px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.error-page h1 {
+    margin: 20px 0 16px;
+    color: #0b1f4d;
+}
+
+.error-page > p:not(.error-code) {
+    color: #637083;
+    line-height: 1.8;
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.error-actions .main-button,
+.error-actions .sub-button {
+    margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .error-page {
+        margin: 32px auto;
+        padding: 48px 20px;
+    }
+
+    .error-code {
+        font-size: 56px;
+    }
+}

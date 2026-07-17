@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ページが見つかりません</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header th:replace="~{fragments :: header}"></header>
+
+	<main class="container">
+		<section class="error-page">
+			<p class="error-code">404</p>
+
+			<h1>ページが見つかりません</h1>
+
+			<p>
+				指定されたページは削除されたか、
+				URLが間違っている可能性があります。
+			</p>
+
+			<div class="error-actions">
+				<a class="main-button" th:href="@{/}">
+					ホームへ戻る
+				</a>
+
+				<a class="sub-button" th:href="@{/apps}">
+					制作物を見る
+				</a>
+			</div>
+		</section>
+	</main>
+
+	<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>
