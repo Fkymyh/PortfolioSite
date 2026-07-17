@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<body>
+
+	<header class="site-header" th:fragment="header">
+		<div class="logo">
+			<a th:href="@{/}" class="logo-link">制作物紹介ポートフォリオ</a>
+		</div>
+
+		<nav>
+			<a th:href="@{/}">ホーム</a>
+			<a th:href="@{/about}">このサイトについて</a>
+			<a th:href="@{/apps}">アプリ紹介</a>
+			<a th:href="@{/learning}">学習記録</a>
+			<a th:href="@{/contact}">お問い合わせ</a>
+		</nav>
+	</header>
+
+</body>
+
+</html>

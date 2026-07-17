@@ -9,16 +9,7 @@
 
 <body>
 
-	<header class="site-header">
-		<div class="logo">制作物紹介ポートフォリオ</div>
-		<nav>
-			<a th:href="@{/}">ホーム</a>
-			<a th:href="@{/about}">このサイトについて</a>
-			<a th:href="@{/apps}">アプリ紹介</a>
-			<a th:href="@{/learning}">学習記録</a>
-			<a th:href="@{/contact}">お問い合わせ</a>
-		</nav>
-	</header>
+	<header th:replace="~{fragments :: header}"></header>
 
 	<main class="container">
 
