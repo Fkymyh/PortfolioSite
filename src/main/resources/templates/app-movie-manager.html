@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title th:text="${pageTitle}">映画検索Webアプリ</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header th:replace="~{fragments :: header}"></header>
+
+	<main class="container">
+
+		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
+
+		<section class="page-heading">
+			<p class="app-label">Python / Flask</p>
+			<h1>映画検索Webアプリ</h1>
+			<p>
+				映画情報を検索し、気になる作品を管理するために制作した
+				Webアプリです。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>画面イメージ</h2>
+
+			<img class="detail-image"
+				 th:src="@{/images/movie-manager.png}"
+				 alt="映画検索Webアプリの画面">
+
+			<p>
+				キーワードから映画を検索し、作品情報を確認できるようにしています。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>制作した理由</h2>
+			<p>
+				自分が映画を見ることが好きだったため、興味のある題材を使って
+				WebアプリとAPI連携を学びたいと考えました。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>主な機能</h2>
+			<ul>
+				<li>キーワードによる映画検索</li>
+				<li>映画情報の一覧表示</li>
+				<li>映画の詳細情報表示</li>
+				<li>お気に入り作品の管理</li>
+			</ul>
+		</section>
+
+		<section class="content-section">
+			<h2>使用技術</h2>
+			<ul>
+				<li>Python</li>
+				<li>Flask</li>
+				<li>HTML / CSS</li>
+				<li>外部API</li>
+				<li>Git / GitHub</li>
+			</ul>
+		</section>
+
+		<section class="content-section">
+			<h2>起動方法と公開状況</h2>
+			<p>
+				現在はWeb上への公開は行っていません。
+				実行環境を用意し、リポジトリの手順に従って起動すると利用できます。
+			</p>
+
+			<a class="main-button"
+			   href="https://github.com/Fkymyh/movie-manager"
+			   target="_blank"
+			   rel="noopener noreferrer">
+				GitHubを見る
+			</a>
+		</section>
+
+	</main>
+
+	<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

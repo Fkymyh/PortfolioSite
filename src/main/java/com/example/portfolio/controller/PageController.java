@@ -54,6 +54,36 @@ public class PageController {
         model.addAttribute("breadcrumbs", List.of("ホーム", "学習記録"));
         return "learning";
     }
+    
+    @GetMapping("/apps/lighting-management")
+    public String lightingManagement(Model model) {
+    		model.addAttribute("pageTitle", "照明機材管理アプリ");
+    		model.addAttribute("currentPage", "apps");
+    		model.addAttribute(
+    			"breadcrumbs", 
+    			List.of(
+    				"ホーム",
+    				"アプリ紹介",
+    				"照明機材管理アプリ"
+    			)
+    		);
+    		return "app-lighting-management";
+    }
+    
+    @GetMapping("/apps/movie-manager")
+    public String movieManager(Model model) {
+        model.addAttribute("pageTitle", "映画検索Webアプリ");
+        model.addAttribute("currentPage", "apps");
+        model.addAttribute(
+            "breadcrumbs",
+            List.of(
+                "ホーム",
+                "アプリ紹介",
+                "映画検索Webアプリ"
+            )
+        );
+        return "app-movie-manager";
+    }
 
     @GetMapping("/contact")
     public String contact(Model model) {

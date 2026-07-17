@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title th:text="${pageTitle}">アプリ紹介</title>
 	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
@@ -10,6 +11,8 @@
 <body>
 
 	<header th:replace="~{fragments :: header}"></header>
+	
+	<main class="container">
 
 	<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
 
@@ -41,19 +44,27 @@
 			<div class="app-card" id="lighting-management">
 				<div class="app-card-text">
 					<p class="app-label">Java</p>
-					<p class="status-badge status-progress">開発中</p>
+					<p class="status-badge status-progress">ソースコード公開中</p>
 					<h2>照明機材管理アプリ</h2>
 					<p>
 						照明機材の管理を想定して制作したアプリです。
 						機材一覧、検索、現場ごとの機材登録などを行えるようにしました。
 						現在はアプリ化前のため、ソースコードをGitHubで公開しています。
 					</p>
-					<a class="sub-button" href="https://github.com/Fkymyh/LightingManagementGUI" target="_blank">GitHub</a>
+					<a class="main-button" th:href="@{/apps/lighting-management}">
+						詳しく見る
+					</a>
+					<a class="sub-button"
+					   href="https://github.com/Fkymyh/LightingManagementGUI"
+					   target="_blank"
+					   rel="noopener noreferrer">
+					   GitHub
+					</a>
 				</div>
 			</div>
 
 			<div class="app-card" id="movie-manager">
-				<class="app-card-text">
+				<div class="app-card-text">
 					<p class="app-label">Python / Flask</p>
 					<p class="status-badge status-progress">起動して利用可能</p>
 					<h2>映画検索Webアプリ</h2>
@@ -62,7 +73,16 @@
 						            自分の好きな映画という関心から制作しました。
 						            実行環境を用意して起動することで動作します。
 					</p>
-					<a class="sub-button" href="https://github.com/Fkymyh/movie-manager" target="_blank">GitHub</a>
+					<a class="main-button" th:href="@{/apps/movie-manager}">
+					詳しく見る
+					</a>
+					
+					<a class="sub-button"
+					   href="https://github.com/Fkymyh/movie-manager"
+					   target="_blank"
+					   rel="noopener noreferrer">
+					   GitHub
+					</a>
 				</div>
 			</div>
 

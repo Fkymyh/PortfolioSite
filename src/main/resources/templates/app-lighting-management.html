@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title th:text="${pageTitle}">照明機材管理アプリ</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header th:replace="~{fragments :: header}"></header>
+
+	<main class="container">
+
+		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
+
+		<section class="page-heading">
+			<p class="app-label">Java / Swing</p>
+			<h1>照明機材管理アプリ</h1>
+			<p>
+				照明機材の一覧管理や検索、現場ごとの使用機材の登録を
+				分かりやすくするために制作したデスクトップアプリです。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>画面イメージ</h2>
+
+			<img class="detail-image"
+				 th:src="@{/images/lighting-management.png}"
+				 alt="照明機材管理アプリの画面">
+
+			<p>
+				機材情報を一覧で確認し、必要な機材を検索・管理できる画面を
+				作成しています。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>制作した理由</h2>
+			<p>
+				イベント現場では多数の照明機材を扱うため、機材情報や使用状況を
+				分かりやすく管理する必要があります。
+			</p>
+			<p>
+				前職での経験をもとに、機材の検索や現場単位での登録を行える
+				管理アプリを作りたいと考えました。
+			</p>
+		</section>
+
+		<section class="content-section">
+			<h2>主な機能</h2>
+			<ul>
+				<li>照明機材の一覧表示</li>
+				<li>機材情報の登録・編集</li>
+				<li>機材名や分類による検索</li>
+				<li>現場ごとの使用機材登録</li>
+				<li>機材情報の保存・読み込み</li>
+			</ul>
+		</section>
+
+		<section class="content-section">
+			<h2>使用技術</h2>
+			<ul>
+				<li>Java</li>
+				<li>Java Swing</li>
+				<li>オブジェクト指向</li>
+				<li>ファイル入出力</li>
+				<li>Git / GitHub</li>
+			</ul>
+		</section>
+
+		<section class="content-section">
+			<h2>公開状況</h2>
+			<p>
+				現在はソースコードの公開段階です。
+				GitHubからコードと実装内容を確認できます。
+			</p>
+
+			<a class="main-button"
+			   href="https://github.com/Fkymyh/LightingManagementGUI"
+			   target="_blank"
+			   rel="noopener noreferrer">
+				GitHubを見る
+			</a>
+		</section>
+
+	</main>
+
+	<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>
