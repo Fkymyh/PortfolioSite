@@ -69,17 +69,18 @@ public class PageController {
     			BindingResult bindingResult,
     			Model model) {
     		
-    		model.addAttribute("pageTitle", "お問い合わせ");
-    		model.addAttribute("breadcrumbs", List.of("ホーム", "お問い合わせ"));
+    		model.addAttribute("currentPage", "contact");
     		
     		if (bindingResult.hasErrors()) {
+    			model.addAttribute("pageTitle", "お問い合わせ");
+        		model.addAttribute("breadcrumbs", List.of("ホーム", "お問い合わせ"));
+        		
     			return "contact";
     		}
     	
     		model.addAttribute("pageTitle", "送信完了");
     		model.addAttribute("breadcrumbs", List.of("ホーム", "お問い合わせ", "送信完了"));
-    		model.addAttribute("contactForm", contactForm);
-    			
+    		
     			return "thanks";
     }
 }

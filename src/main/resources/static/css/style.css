@@ -397,3 +397,28 @@ nav a:hover {
 		justify-content: flex-start;
 	}
 }
+
+.header-nav a{
+	position: relatice;
+	padding: 8px 2px;
+}
+
+.header-nav a.active{
+	color: #0b1f4d;
+	font-weight: bold;
+}
+
+.header-nav a.active::after{
+	content: "";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 3px;
+	border-radius: 999px;
+	background-color: #0b1f4d;
+}
+
+.header-nav a:hover{
+	color: #0b1f4d;
+}
