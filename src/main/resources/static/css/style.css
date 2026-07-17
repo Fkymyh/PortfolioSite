@@ -268,3 +268,13 @@ nav a:hover {
     margin: 16px 0;
     box-shadow: 0 6px 20px rgba(15, 35, 75, 0.08);
 }
+
+.error-message{
+	color: #b91c1c;
+	background-color: #fee2e2;
+	border: 1px solid #fecaca;
+	padding: 8px 10px;
+	border-radius: 8px;
+	font-size: 14px;
+	margin: 0 0 8px 0;
+}
