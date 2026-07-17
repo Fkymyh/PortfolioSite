@@ -57,6 +57,30 @@
 
 	</nav>
 
+	<footer class="site-footer" th:fragment="footer">
+		<div class="footer-inner">
+			<div class="footer-info">
+				<p class="footer-title">制作物紹介ポートフォリオ</p>
+				<p>JavaやPythonを使った制作物と学習記録を紹介しています。</p>
+			</div>
+
+			<nav class="footer-nav" aria-label="フッターナビゲーション">
+				<a th:href="@{/}">ホーム</a>
+				<a th:href="@{/apps}">アプリ紹介</a>
+				<a th:href="@{/learning}">学習記録</a>
+				<a th:href="@{/contact}">お問い合わせ</a>
+
+				<a href="https://github.com/Fkymyh" target="_blank" rel="noopener noreferrer">
+					GitHub
+				</a>
+			</nav>
+		</div>
+
+		<p class="copyright">
+			&copy; 2026 制作物紹介ポートフォリオ
+		</p>
+	</footer>
+
 </body>
 
 </html>
