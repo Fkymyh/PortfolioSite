@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, inital-scale=1">
+	<title th:text="${pageTitle}">お問い合わせ管理</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header th:replace="~{fragments :: header}"></header>
+
+	<main class="container">
+
+		<section class="page-heading">
+			<h1>お問い合わせ管理</h1>
+			<p>
+				お問い合わせフォームから送信された内容を確認できます。
+			</p>
+		</section>
+
+		<section class="content-section">
+
+			<div class="admin-heading">
+				<h2>お問い合わせ一覧</h2>
+
+				<form th:action="@{/logout}" method="post">
+					<button class="sub-button logout-button" type="submit">
+						ログアウト
+					</button>
+				</form>
+			</div>
+
+			<p th:if="${#lists.isEmpty(contactMessages)}" class="empty-message">
+				現在、お問い合わせはありません。
+			</p>
+
+			<div class="message-list" th:unless="${#lists.isEmpty(contactMessages)}">
+
+				<article class="message-card" th:each="contactMessage : ${contactMessages}">
+
+					<div class="message-card-header">
+						<h3 th:text="${contactMessage.subject}">
+							件名
+						</h3>
+
+						<time th:text="${#temporals.format(
+							contactMessage.createdAt,
+							'yyyy年MM月dd日 HH:mm'
+							)}">
+							送信日時
+						</time>
+					</div>
+
+					<dl class="message-details">
+						<div>
+							<dt>お名前</dt>
+							<dd th:text="${contactMessage.name}">
+								お名前
+							</dd>
+						</div>
+
+						<div>
+							<dt>メールアドレス</dt>
+							<dd>
+								<a th:href="'mailto:' + ${contactMessage.email}" th:text="${contactMessage.email}">
+									メールアドレス
+								</a>
+							</dd>
+						</div>
+					</dl>
+
+					<div class="message-body">
+						<h4>メッセージ</h4>
+
+						<p th:text="${contactMessage.message}">
+							メッセージ本文
+						</p>
+					</div>
+
+				</article>
+
+			</div>
+
+		</section>
+
+	</main>
+
+	<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+
+</html>
