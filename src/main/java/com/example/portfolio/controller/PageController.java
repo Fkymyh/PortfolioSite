@@ -10,10 +10,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.portfolio.entity.ContactMessage;
 import com.example.portfolio.form.ContactForm;
 import com.example.portfolio.repository.ContactMessageRepository;
+
 
 
 @Controller
@@ -108,7 +110,8 @@ public class PageController {
     public String sendContact(
     			@Valid @ModelAttribute ContactForm contactForm,
     			BindingResult bindingResult,
-    			Model model) {
+    			Model model,
+    			RedirectAttributes redirectAttributes) {
     		
     		model.addAttribute("currentPage", "contact");
     		
@@ -126,13 +129,25 @@ public class PageController {
     		contactMessage.setMessage(contactForm.getMessage());
     		
     		contactMessageRepository.save(contactMessage);
-    	
-    		model.addAttribute("pageTitle", "送信完了");
-    		model.addAttribute(
-    				"breadcrumbs", 
-    				List.of("ホーム", "お問い合わせ", "送信完了"));
-    		model.addAttribute("contactForm", contactForm);
     		
-    			return "thanks";
+    		redirectAttributes.addFlashAttribute(
+    				"contactName",
+    				contactForm.getName()
+    				);
+    		
+    			return "redirect:/contact/thanks";
+    }
+    
+    @GetMapping("/contact/thanks")
+    public String contactThanks(Model model) {
+    	model.addAttribute("pageTitle", "送信完了");
+    	model.addAttribute("currentPage", "contact");
+    	model.addAttribute(
+    			"breadcrumbs",
+    			List.of("ホーム", "お問い合わせ", "送信完了")
+    			);
+    			
+    	return "thanks";
+    	
     }
 }
