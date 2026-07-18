@@ -11,10 +11,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.portfolio.entity.ContactMessage;
 import com.example.portfolio.form.ContactForm;
+import com.example.portfolio.repository.ContactMessageRepository;
+
 
 @Controller
 public class PageController {
+	
+	private final ContactMessageRepository contactMessageRepository;
+	
+	public PageController(
+			ContactMessageRepository contactMessageRepository) {
+		this.contactMessageRepository = contactMessageRepository;
+	}
+	
 
     @GetMapping("/")
     public String home(Model model) {
@@ -107,9 +118,20 @@ public class PageController {
         		
     			return "contact";
     		}
+    		
+    		ContactMessage contactMessage = new ContactMessage();
+    		contactMessage.setName(contactForm.getName());
+    		contactMessage.setEmail(contactForm.getEmail());
+    		contactMessage.setSubject(contactForm.getSubject());
+    		contactMessage.setMessage(contactForm.getMessage());
+    		
+    		contactMessageRepository.save(contactMessage);
     	
     		model.addAttribute("pageTitle", "送信完了");
-    		model.addAttribute("breadcrumbs", List.of("ホーム", "お問い合わせ", "送信完了"));
+    		model.addAttribute(
+    				"breadcrumbs", 
+    				List.of("ホーム", "お問い合わせ", "送信完了"));
+    		model.addAttribute("contactForm", contactForm);
     		
     			return "thanks";
     }
