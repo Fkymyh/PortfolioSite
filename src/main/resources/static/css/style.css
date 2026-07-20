@@ -896,3 +896,159 @@ nav a:hover {
     color: #637083;
     font-size: 13px;
 }
+
+.theme-toggle {
+    flex: 0 0 auto;
+    padding: 9px 14px;
+    border: 1px solid #0b1f4d;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #0b1f4d;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background-color: #eef3f9;
+}
+
+.theme-toggle:focus-visible {
+    outline: 3px solid rgba(29, 78, 216, 0.3);
+    outline-offset: 2px;
+}
+
+@media screen and (max-width: 800px) {
+    .theme-toggle {
+        width: 100%;
+    }
+}
+
+html[data-theme="classic"] body {
+    background-color: #ece9d8;
+    color: #222222;
+    font-family: Tahoma, "MS UI Gothic", sans-serif;
+}
+
+html[data-theme="classic"] .site-header {
+    border: 2px solid #003c9d;
+    border-radius: 8px 8px 0 0;
+    background: linear-gradient(
+        to bottom,
+        #2495ff 0%,
+        #0066e8 12%,
+        #0054d8 55%,
+        #003bb5 100%
+    );
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="classic"] .logo-link {
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #00317d;
+}
+
+html[data-theme="classic"] .header-nav a {
+    border: 1px solid #aca899;
+    border-radius: 3px;
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #ece9d8
+    );
+    color: #1f2933;
+    box-shadow: inset 1px 1px 0 #ffffff;
+}
+
+html[data-theme="classic"] .header-nav a:hover {
+    border-color: #0054e3;
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #dcecff
+    );
+}
+
+html[data-theme="classic"] .header-nav a.active {
+    color: #003c9d;
+}
+
+html[data-theme="classic"] .theme-toggle {
+    border: 1px solid #7f9db9;
+    border-radius: 3px;
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #ece9d8
+    );
+    color: #222222;
+    box-shadow:
+        inset 1px 1px 0 #ffffff,
+        1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="classic"] .hero,
+html[data-theme="classic"] .page-heading,
+html[data-theme="classic"] .content-section,
+html[data-theme="classic"] .card,
+html[data-theme="classic"] .app-card {
+    border: 2px solid #0054e3;
+    border-radius: 5px;
+    background-color: #fffdf4;
+    box-shadow:
+        inset 0 1px 0 #ffffff,
+        2px 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+html[data-theme="classic"] .hero h1,
+html[data-theme="classic"] .page-heading h1,
+html[data-theme="classic"] .content-section h2,
+html[data-theme="classic"] .card h3,
+html[data-theme="classic"] .app-card h2 {
+    color: #003c9d;
+}
+
+html[data-theme="classic"] .main-button {
+    border: 1px solid #003c9d;
+    border-radius: 3px;
+    background: linear-gradient(
+        to bottom,
+        #4fa3ff,
+        #0054e3
+    );
+    color: #ffffff;
+    box-shadow:
+        inset 1px 1px 0 rgba(255, 255, 255, 0.6),
+        1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="classic"] .main-button:hover {
+    background: linear-gradient(
+        to bottom,
+        #6db5ff,
+        #0865ed
+    );
+}
+
+html[data-theme="classic"] .sub-button {
+    border: 1px solid #7f9db9;
+    border-radius: 3px;
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #ece9d8
+    );
+    color: #222222;
+}
+
+html[data-theme="classic"] .site-footer {
+    border-top: 2px solid #003c9d;
+    background: linear-gradient(
+        to bottom,
+        #0868e8,
+        #0046b8
+    );
+}

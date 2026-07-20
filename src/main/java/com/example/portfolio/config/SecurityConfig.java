@@ -29,6 +29,7 @@ public class SecurityConfig {
 								"/contact/**",
 								"/css/**",
 								"/images/**",
+								"/js/**",
 								"/error")
 						.permitAll()
 						.requestMatchers("/admin/**")
