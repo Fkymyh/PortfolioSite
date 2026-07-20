@@ -188,4 +188,60 @@ public class PageController {
 					return "redirect:/admin/messages";
 				});
 	}
+	
+	@GetMapping("/admin/messages/{id}/delete")
+	public String confirmDeleteMessage(
+			@PathVariable Long id,
+			Model model,
+			RedirectAttributes redirectAttributes) {
+		
+		return contactMessageRepository.findById(id)
+				.map(contactMessage -> {
+					model.addAttribute(
+							"pageTitle",
+							"お問い合わせ削除確認"
+							);
+					model.addAttribute("currentPage", "");
+					model.addAttribute(
+							"contactMessage",
+							contactMessage
+							);
+					
+					return "admin-message-delete";					
+				})
+				.orElseGet(() -> {
+					redirectAttributes.addFlashAttribute(
+							"errorMessage",
+							"指定されたお問い合わせが見つかりません。"
+							);
+					
+					return "redirect:/admin/messages";
+					
+				});
+	}
+	
+	@PostMapping("/admin/messages/{id}/delete")
+	public String deleteMessage(
+			@PathVariable Long id,
+			RedirectAttributes redirectAttributes) {
+		
+		if(!contactMessageRepository.existsById(id)) {
+			redirectAttributes.addFlashAttribute(
+					"errorMessage",
+					"指定されたお問い合わせが見つかりません。"
+					);
+			
+			return "redirect:/admin/messages";
+		}
+		
+		contactMessageRepository.deleteById(id);
+		
+		redirectAttributes.addFlashAttribute(
+				"successMessage",
+				"お問い合わせを削除しました。"
+				);
+		
+		return "redirect:/admin/messages";
+	}
+	
 }

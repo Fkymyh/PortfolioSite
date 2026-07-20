@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1">
+
+	<title th:text="${pageTitle}">
+		お問い合わせ削除確認
+	</title>
+
+	<link rel="stylesheet"
+		  th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header th:replace="~{fragments :: header}"></header>
+
+	<main class="container">
+
+		<section class="page-heading">
+			<h1>お問い合わせ削除確認</h1>
+			<p>
+				以下のお問い合わせを削除します。
+			</p>
+		</section>
+
+		<section class="content-section delete-confirmation">
+
+			<div class="warning-box">
+				<h2>本当に削除しますか？</h2>
+				<p>
+					削除したお問い合わせは元に戻せません。
+				</p>
+			</div>
+
+			<dl class="message-detail-list">
+				<div>
+					<dt>ID</dt>
+					<dd th:text="${contactMessage.id}">
+						ID
+					</dd>
+				</div>
+
+				<div>
+					<dt>件名</dt>
+					<dd th:text="${contactMessage.subject}">
+						件名
+					</dd>
+				</div>
+
+				<div>
+					<dt>お名前</dt>
+					<dd th:text="${contactMessage.name}">
+						お名前
+					</dd>
+				</div>
+
+				<div>
+					<dt>受信日時</dt>
+					<dd th:text="${contactMessage.createdAt}">
+						受信日時
+					</dd>
+				</div>
+			</dl>
+
+			<div class="message-actions">
+				<a class="sub-button"
+				   th:href="@{/admin/messages/{id}(
+					   id=${contactMessage.id}
+				   )}">
+					キャンセル
+				</a>
+
+				<form th:action="@{/admin/messages/{id}/delete(
+						  id=${contactMessage.id}
+					  )}"
+					  method="post">
+
+					<button class="danger-button"
+							type="submit">
+						削除を実行する
+					</button>
+				</form>
+			</div>
+
+		</section>
+
+	</main>
+
+	<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

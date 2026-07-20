@@ -676,3 +676,49 @@ nav a:hover {
         gap: 4px;
     }
 }
+
+.danger-button {
+    display: inline-block;
+    padding: 11px 18px;
+    border: 1px solid #b91c1c;
+    border-radius: 8px;
+    background-color: #b91c1c;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.danger-button:hover {
+    background-color: #991b1b;
+}
+
+.warning-box {
+    padding: 20px;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    background-color: #fef2f2;
+}
+
+.warning-box h2 {
+    margin-top: 0;
+    color: #991b1b;
+}
+
+.warning-box p {
+    margin-bottom: 0;
+}
+
+.admin-success {
+    padding: 14px 16px;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    background-color: #f0fdf4;
+    color: #166534;
+}
+
+.message-actions form {
+    margin: 0;
+}

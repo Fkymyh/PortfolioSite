@@ -24,6 +24,10 @@
 		<p class="admin-alert" th:if="${errorMessage != null}" th:text="${errorMessage}">
 			エラーメッセージ
 		</p>
+		
+		<p class="admin-success" th:if="${successMessage != null}" th:text="${successMessage}">
+			成功メッセージ
+		</p>
 
 		<section class="content-section">
 
