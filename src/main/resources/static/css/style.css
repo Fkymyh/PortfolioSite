@@ -1668,3 +1668,7 @@ html[data-theme="classic"] .detail-links {
         grid-template-columns: 1fr;
     }
 }
+
+html[data-theme="classic"] .detail-info-grid > .content-section {
+    min-height: 100%;
+}
