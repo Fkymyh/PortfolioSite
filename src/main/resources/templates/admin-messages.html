@@ -21,6 +21,10 @@
 			</p>
 		</section>
 
+		<p class="admin-alert" th:if="${errorMessage != null}" th:text="${errorMessage}">
+			エラーメッセージ
+		</p>
+
 		<section class="content-section">
 
 			<div class="admin-heading">
@@ -39,17 +43,14 @@
 
 			<div class="message-list" th:unless="${#lists.isEmpty(contactMessages)}">
 
-				<article class="message-card" th:each="contactMessage : ${contactMessages}">
+				<article class="message-card" th:each="item : ${contactMessages}">
 
 					<div class="message-card-header">
-						<h3 th:text="${contactMessage.subject}">
+						<h3 th:text="${item.subject}">
 							件名
 						</h3>
 
-						<time th:text="${#temporals.format(
-							contactMessage.createdAt,
-							'yyyy年MM月dd日 HH:mm'
-							)}">
+						<time th:text="${item.createdAt}">
 							送信日時
 						</time>
 					</div>
@@ -57,17 +58,15 @@
 					<dl class="message-details">
 						<div>
 							<dt>お名前</dt>
-							<dd th:text="${contactMessage.name}">
+							<dd th:text="${item.name}">
 								お名前
 							</dd>
 						</div>
 
 						<div>
 							<dt>メールアドレス</dt>
-							<dd>
-								<a th:href="'mailto:' + ${contactMessage.email}" th:text="${contactMessage.email}">
-									メールアドレス
-								</a>
+							<dd th:text="${item.email}">
+								メールアドレス
 							</dd>
 						</div>
 					</dl>
@@ -75,9 +74,20 @@
 					<div class="message-body">
 						<h4>メッセージ</h4>
 
-						<p th:text="${contactMessage.message}">
+						<p th:text="${#strings.abbreviate(
+								item.message,
+								100
+							)}">
 							メッセージ本文
 						</p>
+					</div>
+
+					<div class="message-actions">
+						<a class="main-button" th:href="@{/admin/messages/{id}(
+							   id=${item.id}
+						   )}">
+							詳細を見る
+						</a>
 					</div>
 
 				</article>

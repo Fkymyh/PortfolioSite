@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -158,5 +159,33 @@ public class PageController {
 								"createdAt")));
 
 		return "admin-messages";
+	}
+	
+	@GetMapping("/admin/messages/{id}")
+	public String adminMessageDetail(
+			@PathVariable Long id,
+			Model model,
+			RedirectAttributes redirectAttributes) {
+		
+		return contactMessageRepository.findById(id)
+				.map(contactMessage -> {
+					model.addAttribute(
+						"pageTitle",
+						"お問い合わせ詳細"
+					);
+					model.addAttribute("currentPage", "");
+					model.addAttribute(
+							"contactMessage",
+							contactMessage
+							);
+					return "admin-message-detail";
+					})
+				.orElseGet(() -> {
+					redirectAttributes.addFlashAttribute(
+							"errorMessage",
+							"指定されたお問い合わせ見つかりません。"
+							);
+					return "redirect:/admin/messages";
+				});
 	}
 }
