@@ -1,3 +1,29 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+textarea,
+button {
+    max-width: 100%;
+}
+
 body {
     margin: 0;
     font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic", sans-serif;
@@ -721,4 +747,146 @@ nav a:hover {
 
 .message-actions form {
     margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+    .site-header {
+        position: static;
+        padding: 16px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .header-nav {
+        display: flex;
+        width: 100%;
+        padding-bottom: 4px;
+        gap: 8px;
+        overflow-x: auto;
+    }
+
+    .header-nav a {
+        flex: 0 0 auto;
+        margin: 0;
+        padding: 8px 10px;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        width: 100%;
+        padding: 20px 16px;
+    }
+
+    .hero,
+    .page-heading {
+        padding: 28px 20px;
+        border-radius: 14px;
+    }
+
+    .hero h1,
+    .page-heading h1 {
+        font-size: 28px;
+        line-height: 1.4;
+    }
+
+    .content-section {
+        padding: 24px 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .card-area {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .app-list {
+        gap: 20px;
+    }
+
+    .app-card {
+        padding: 22px 18px;
+    }
+
+    .card-image {
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-button,
+    .sub-button,
+    .danger-button {
+        display: block;
+        width: 100%;
+        margin: 10px 0 0;
+        text-align: center;
+    }
+
+    .message-actions {
+        display: grid;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .message-actions form {
+        width: 100%;
+    }
+
+    .message-actions form button {
+        width: 100%;
+    }
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .contact-form {
+        gap: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .admin-heading,
+    .message-card-header,
+    .detail-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .message-details > div,
+    .message-detail-list > div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .message-card {
+        padding: 18px;
+    }
+
+    .message-body,
+    .message-full-text {
+        padding: 18px;
+    }
+
+    .message-card-header time {
+        white-space: normal;
+    }
 }
