@@ -5,19 +5,18 @@
 	<meta charset="UTF-8">
 	<title th:text="${pageTitle}">Stage Layout Designer</title>
 	<link rel="stylesheet" th:href="@{/css/style.css}">
-	<meta name="viewport"
-		  content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
 	<header th:replace="~{fragments :: header}"></header>
 
-	<main class="container">
+	<main class="container detail-page">
 
 		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
 
-		<section class="page-heading">
+		<section class="page-heading detail-app-heading">
 			<p class="app-label">Java / Swing</p>
 			<h1>Stage Layout Designer</h1>
 			<p>
@@ -25,98 +24,105 @@
 				機材を直感的に配置し、会場レイアウトを分かりやすく作成することを目的にしています。
 			</p>
 		</section>
-		
-		<section class="content-section">
-			<h2>画面イメージ</h2>
-			<img class="detail-image" th:src="@{/images/stage-layout.png}" alt="Stage Layout Designerの画面">
-			<p>
-				左側の機材パレットから機材を選び、中央のキャンバスに配置してレイアウトを作成します。
-				グリッド表示により、位置関係を確認しながら配置できます。
-			</p>
-		</section>
 
-		<section class="content-section">
-			<h2>作った理由</h2>
-			<p>
-				大学時代の放送部や前職のイベント現場で、仕込み図や機材配置の共有に手間を感じた経験がありました。
-				専門的なソフトを使わなくても、学生団体や後輩が直感的に使える簡易的なレイアウト作成ツールを作りたいと考えました。
-			</p>
-		</section>
+		<div class="detail-overview-grid">
 
-		<section class="content-section">
-			<h2>主な機能</h2>
-			<ul>
-				<li>音響・照明・舞台機材の配置</li>
-				<li>ドラッグによる移動</li>
-				<li>グリッド表示と吸着</li>
-				<li>右クリックによる削除</li>
-				<li>機材情報の編集</li>
-				<li>保存・読み込み機能</li>
-			</ul>
-		</section>
+			<section class="content-section detail-screen-section">
+				<h2>画面イメージ</h2>
+				<img class="detail-image" th:src="@{/images/stage-layout.png}" alt="Stage Layout Designerの画面">
+				<p>
+					左側の機材パレットから機材を選び、中央のキャンバスに配置してレイアウトを作成します。
+					グリッド表示により、位置関係を確認しながら配置できます。
+				</p>
+			</section>
 
-		<section class="content-section">
-			<h2>使用技術</h2>
-			<ul>
-				<li>Java</li>
-				<li>Swing</li>
-				<li>オブジェクト指向</li>
-				<li>ファイル入出力</li>
-				<li>Git / GitHub</li>
-			</ul>
-		</section>
+			<div class="detail-summary-column">
 
-		<section class="content-section">
-			<h2>工夫した点</h2>
-			<p>
-				ステージ設営に詳しくない人でも使いやすいように、機材を選んで配置するだけでレイアウトを作れる構成にしました。
-				また、グリッドやルーラーを表示することで、位置関係を視覚的に把握しやすくしています。
-			</p>
-		</section>
-		
-		<section class="content-section">
-			<h2>苦労した点</h2>
-			<p>
-				機材のドラッグ移動や選択状態の管理、保存・読み込み時のデータ構造の整理に苦労しました。
-				特に、画面上の操作と内部データを一致させる部分は、実際に動かしながら何度も調整しました。
-			</p>
-			<p>
-				また、CanvasPanelに描画処理やマウス操作の処理が集まり、クラスが大きくなってきたため、
-				今後は処理を分割して、保守しやすい構成に改善したいと考えています。
-			</p>
-		</section>
+				<section class="content-section">
+					<h2>作った理由</h2>
+					<p>
+						大学時代の放送部や前職のイベント現場で、仕込み図や機材配置の共有に手間を感じた経験がありました。
+						専門的なソフトを使わなくても、学生団体や後輩が直感的に使える簡易的なレイアウト作成ツールを作りたいと考えました。
+					</p>
+				</section>
 
-		<section class="content-section">
-			<h2>今後追加したい機能</h2>
-			<ul>
-				<li>ズーム機能</li>
-				<li>テンプレートの追加</li>
-				<li>CanvasPanelの分割による保守性改善</li>
-			</ul>
-		</section>
 
-		<section class="content-section">
-			<h2>リンク</h2>
-			<p>
+
+				<section class="content-section">
+					<h2>使用技術</h2>
+					<ul>
+						<li>Java</li>
+						<li>Swing</li>
+						<li>オブジェクト指向</li>
+						<li>ファイル入出力</li>
+						<li>Git / GitHub</li>
+					</ul>
+				</section>
+
+			</div>
+		</div>
+
+
+
+		<div class="detail-info-grid">
+
+			<section class="content-section">
+				<h2>主な機能</h2>
+				<ul>
+					<li>音響・照明・舞台機材の配置</li>
+					<li>ドラッグによる移動</li>
+					<li>グリッド表示と吸着</li>
+					<li>右クリックによる削除</li>
+					<li>機材情報の編集</li>
+					<li>保存・読み込み機能</li>
+				</ul>
+			</section>
+
+			<section class="content-section">
+				<h2>工夫した点</h2>
+				<p>
+					ステージ設営に詳しくない人でも使いやすいように、機材を選んで配置するだけでレイアウトを作れる構成にしました。
+					また、グリッドやルーラーを表示することで、位置関係を視覚的に把握しやすくしています。
+				</p>
+			</section>
+
+			<section class="content-section">
+				<h2>苦労した点</h2>
+				<p>
+					機材のドラッグ移動や選択状態の管理、保存・読み込み時のデータ構造の整理に苦労しました。
+					特に、画面上の操作と内部データを一致させる部分は、実際に動かしながら何度も調整しました。
+				</p>
+				<p>
+					また、CanvasPanelに描画処理やマウス操作の処理が集まり、クラスが大きくなってきたため、
+					今後は処理を分割して、保守しやすい構成に改善したいと考えています。
+				</p>
+			</section>
+
+			<section class="content-section">
+				<h2>今後追加したい機能</h2>
+				<ul>
+					<li>ズーム機能</li>
+					<li>テンプレートの追加</li>
+					<li>CanvasPanelの分割による保守性改善</li>
+				</ul>
+			</section>
+
+			<section class="content-section detail-links">
+				<h2>リンク</h2>
 				<p>
 					ソースコードはGitHubで公開しています。
 					アプリはリリースページからダウンロードできます。
 				</p>
-			</p>
-			<a class="main-button"
-			   href="https://github.com/Fkymyh/StageLayout-Designer"
-			   target="_blank"
-			   rel="noopener noreferrer">
-				GitHubを見る
-			</a>
+				<a class="main-button" href="https://github.com/Fkymyh/StageLayout-Designer" target="_blank"
+					rel="noopener noreferrer">
+					GitHubを見る
+				</a>
 
-			<a class="sub-button"
-			   href="https://github.com/Fkymyh/StageLayout-Designer/releases/latest"
-			   target="_blank"
-			   rel="noopener noreferrer">
-				アプリをダウンロード
-			</a>
-		</section>
+				<a class="sub-button" href="https://github.com/Fkymyh/StageLayout-Designer/releases/latest"
+					target="_blank" rel="noopener noreferrer">
+					アプリをダウンロード
+				</a>
+			</section>
 	</main>
 	<footer th:replace="~{fragments :: footer}"></footer>
 </body>
