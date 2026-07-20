@@ -1,7 +1,6 @@
 package com.example.portfolio.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.security.autoconfigure.web.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -32,9 +31,6 @@ public class SecurityConfig {
 								"/images/**",
 								"/error")
 						.permitAll()
-						.requestMatchers(
-								PathRequest.toH2Console())
-						.permitAll()
 						.requestMatchers("/admin/**")
 						.hasRole("ADMIN")
 						.anyRequest()
@@ -45,9 +41,6 @@ public class SecurityConfig {
 				.logout(logout -> logout
 						.logoutSuccessUrl("/")
 						.permitAll())
-				.csrf(csrf -> csrf
-						.ignoringRequestMatchers(
-								PathRequest.toH2Console()))
 				.headers(headers -> headers
 						.frameOptions(frame -> frame.sameOrigin()));
 		return http.build();
