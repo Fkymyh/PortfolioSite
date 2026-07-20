@@ -2,76 +2,211 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ja">
 
 <head>
-	<meta charset="UTF-8">
-	<title th:text="${pageTitle}">このサイトについて</title>
-	<link rel="stylesheet" th:href="@{/css/style.css}">
-	<meta name="viewport"
-		  content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <title th:text="${pageTitle}">
+        このサイトについて
+    </title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
-	<header th:replace="~{fragments :: header}"></header>
+    <header th:replace="~{fragments :: header}"></header>
 
-	<main class="container">
+    <main class="container about-page">
 
-		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
+        <nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
 
-		<section class="page-heading">
-			<h1>このサイトについて</h1>
-			<p>
-				このサイトは、これまで制作したアプリや学習内容をまとめるために制作したポートフォリオサイトです。
-				会社の方が見たときに、どのような目的でアプリを作り、どのような技術を学んできたのかが分かることを目指しています。
-			</p>
-		</section>
+        <section class="page-heading about-heading">
+            <h1>このサイトについて</h1>
 
-		<section class="content-section">
-			<h2>制作背景</h2>
-			<p>
-				前職ではイベント現場に関わり、照明機材の設営や本番対応を経験しました。
-				その中で、機材管理や仕込み図の共有をより分かりやすくできないかと考えるようになりました。
-			</p>
-			<p>
-				現在は職業訓練でJava、Servlet/JSP、Spring Framework、Pythonなどを学びながら、
-				現場経験や自分の関心をもとにしたアプリ制作に取り組んでいます。
-			</p>
-		</section>
+            <p>
+                このサイトは、これまで制作したアプリや学習内容を
+                まとめるために制作したポートフォリオサイトです。
+                制作目的や使用技術、工夫した点が分かりやすく
+                伝わることを目指しています。
+            </p>
+        </section>
 
-		<section class="content-section">
-			<h2>制作で意識していること</h2>
-			<ul>
-				<li>見た人が迷わない分かりやすい画面構成</li>
-				<li>白を基調にした読みやすいデザイン</li>
-				<li>現在位置が分かるパンくずリストの表示</li>
-				<li>制作背景や工夫した点が伝わる説明</li>
-				<li>過度なアニメーションよりも使いやすさを重視</li>
-			</ul>
-		</section>
+        <div class="about-layout">
 
-		<section class="content-section">
-			<h2>今後の方針</h2>
-			<p>
-				まずは制作アプリの紹介ページを整え、その後、お問い合わせフォームや学習記録の管理機能などを追加していく予定です。
-				Spring Bootを使いながら、Webアプリケーションの基本的な構成を学んでいきます。
-			</p>
-		</section>
+            <aside class="about-menu"
+                   aria-label="このサイトについての目次">
 
-		<section class="content-section">
-			<h2>参考にした教材・サイト</h2>
-			<p>
-				学習中に参考にした教材やサイトです。
-				コードをそのまま使うのではなく、仕組みを理解するための確認や補助として活用しました。
-			</p>
-			<ul>
-				<li>職業訓練で使用したJava、Servlet/JSP、Spring Frameworkの教材</li>
-				<li>とほほのWWW入門</li>
-				<li>Spring Boot関連の公式ドキュメント</li>
-				<li>GitHub Docs</li>
-			</ul>
-		</section>
+                <div class="about-menu-title">
+                    メニュー
+                </div>
 
-	</main>
-	<footer th:replace="~{fragments :: footer}"></footer>
+                <nav class="about-menu-nav"
+                     aria-label="ページ内メニュー">
+
+                    <a href="#profile" class="active">
+                        <span aria-hidden="true">ℹ️</span>
+                        基本情報
+                    </a>
+
+                    <a href="#background">
+                        <span aria-hidden="true">📖</span>
+                        制作背景
+                    </a>
+
+                    <a href="#policy">
+                        <span aria-hidden="true">🛠️</span>
+                        制作方針
+                    </a>
+
+                    <a href="#future">
+                        <span aria-hidden="true">🚩</span>
+                        今後の目標
+                    </a>
+
+                    <a href="#references">
+                        <span aria-hidden="true">📚</span>
+                        参考資料
+                    </a>
+
+                </nav>
+            </aside>
+
+            <div class="about-content">
+
+                <section class="content-section"
+                         id="profile">
+
+                    <h2>基本情報</h2>
+
+                    <dl class="about-profile-list">
+                        <div>
+                            <dt>表示名</dt>
+                            <dd>Fkymyh</dd>
+                        </div>
+
+                        <div>
+                            <dt>学習中</dt>
+                            <dd>
+                                Java / Spring Boot / Python
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>経験</dt>
+                            <dd>
+                                イベント・照明分野
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>関心</dt>
+                            <dd>
+                                使いやすい画面設計と、
+                                現場経験を活かしたアプリ制作
+                            </dd>
+                        </div>
+                    </dl>
+                </section>
+
+                <section class="content-section"
+                         id="background">
+
+                    <h2>制作背景</h2>
+
+                    <p>
+                        前職ではイベント現場に関わり、
+                        照明機材の設営や本番対応を経験しました。
+                        その中で、機材管理や仕込み図の共有を
+                        より分かりやすくできないかと
+                        考えるようになりました。
+                    </p>
+
+                    <p>
+                        現在は職業訓練や個人学習を通して、
+                        Java、Servlet/JSP、Spring Boot、
+                        Pythonなどを学びながら、
+                        現場経験や自分の関心をもとにした
+                        アプリ制作に取り組んでいます。
+                    </p>
+                </section>
+
+                <section class="content-section"
+                         id="policy">
+
+                    <h2>制作で意識していること</h2>
+
+                    <ul>
+                        <li>
+                            見た人が迷わない、分かりやすい画面構成
+                        </li>
+                        <li>
+                            現在位置が分かるナビゲーションと
+                            パンくずリスト
+                        </li>
+                        <li>
+                            制作背景や工夫した点が伝わる説明
+                        </li>
+                        <li>
+                            過度な動きよりも操作の分かりやすさを重視
+                        </li>
+                        <li>
+                            通常モードとクラシックモードの
+                            どちらでも読みやすいデザイン
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="content-section"
+                         id="future">
+
+                    <h2>今後の方針</h2>
+
+                    <p>
+                        ポートフォリオサイトのクラシックモードを
+                        完成させた後、各制作アプリの画面改善や
+                        配布方法の整備を進める予定です。
+                    </p>
+
+                    <p>
+                        また、このサイトをインターネット上へ公開し、
+                        制作物や学習内容を実際に確認できる状態に
+                        することを目標にしています。
+                    </p>
+                </section>
+
+                <section class="content-section"
+                         id="references">
+
+                    <h2>参考にした教材・サイト</h2>
+
+                    <p>
+                        学習中に参考にした教材やサイトです。
+                        コードをそのまま利用するのではなく、
+                        仕組みを理解するための確認や補助として
+                        活用しています。
+                    </p>
+
+                    <ul>
+                        <li>
+                            職業訓練で使用したJava、
+                            Servlet/JSP、Spring Frameworkの教材
+                        </li>
+                        <li>とほほのWWW入門</li>
+                        <li>Spring Boot公式ドキュメント</li>
+                        <li>GitHub Docs</li>
+                    </ul>
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer th:replace="~{fragments :: footer}"></footer>
+
 </body>
-
 </html>
