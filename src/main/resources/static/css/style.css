@@ -71,7 +71,7 @@ nav a:hover {
 	font-size: 14px;
 }
 
-.boreadcrumb-list{
+.breadcrumb-list{
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -351,7 +351,7 @@ nav a:hover {
 .site-header nav a.active{
 	color: #0b1f4d;
 	font-weight: bold;
-	border-bottom: 2px splod #0b1f4d;
+	border-bottom: 2px solid #0b1f4d;
 	padding-bottom: 5px;
 }
 
@@ -407,7 +407,7 @@ nav a:hover {
 	max-width: 1040px;
 	margin: 32px auto 0;
 	padding-top: 18px;
-	border-top: 1px splid rgba(255, 255, 255, 0.2);
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
 	color: #cbd5e1;
 	font-size: 13px;
 	text-align: center;
@@ -425,7 +425,7 @@ nav a:hover {
 }
 
 .header-nav a{
-	position: relatice;
+	position: relative;
 	padding: 8px 2px;
 }
 
@@ -1051,4 +1051,281 @@ html[data-theme="classic"] .site-footer {
         #0868e8,
         #0046b8
     );
+}
+
+/* ========================================
+   クラシックモード：デスクトップ全体
+   ======================================== */
+
+html[data-theme="classic"] body {
+    min-height: 100vh;
+    padding: 42px 24px 74px;
+
+    background:
+        radial-gradient(
+            ellipse at 15% 62%,
+            #65b93c 0 14%,
+            transparent 15%
+        ),
+        radial-gradient(
+            ellipse at 78% 66%,
+            #4da92e 0 20%,
+            transparent 21%
+        ),
+        linear-gradient(
+            to bottom,
+            #1689ef 0%,
+            #64bdf5 48%,
+            #83cc54 49%,
+            #3e9e27 100%
+        );
+
+    background-attachment: fixed;
+}
+
+/* 雲のような装飾 */
+html[data-theme="classic"] body::before {
+    content: "";
+    position: fixed;
+    top: 65px;
+    right: 8%;
+    width: 240px;
+    height: 70px;
+    z-index: -1;
+    pointer-events: none;
+
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow:
+        -70px 18px 0 -6px rgba(255, 255, 255, 0.82),
+        65px 22px 0 -10px rgba(255, 255, 255, 0.78),
+        15px -18px 0 -8px rgba(255, 255, 255, 0.8);
+    filter: blur(2px);
+}
+
+/* 中央ウィンドウの上部 */
+html[data-theme="classic"] .site-header {
+    position: relative;
+    top: auto;
+
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    padding: 54px 18px 0;
+
+    border: 3px solid #003c9d;
+    border-bottom: 1px solid #7f9db9;
+    border-radius: 10px 10px 0 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #168cff 0,
+            #0867dc 38px,
+            #ece9d8 39px,
+            #f7f5ed 100%
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.85),
+        5px 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* タイトルバーのタイトル */
+html[data-theme="classic"] .logo {
+    position: absolute;
+    top: 10px;
+    left: 16px;
+}
+
+html[data-theme="classic"] .logo-link {
+    font-family: Tahoma, "MS UI Gothic", sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* 右上のウィンドウボタン風装飾 */
+html[data-theme="classic"] .site-header::after {
+    content: "—  □  ×";
+    position: absolute;
+    top: 6px;
+    right: 8px;
+
+    padding: 3px 8px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+
+    background: linear-gradient(to bottom, #3c9cff, #0750c9);
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-shadow: 1px 1px #003c9d;
+}
+
+/* 中央ウィンドウの本文 */
+html[data-theme="classic"] .container {
+    width: min(1180px, 100%);
+    max-width: none;
+    margin: 0 auto;
+    padding: 24px;
+
+    border-right: 3px solid #003c9d;
+    border-left: 3px solid #003c9d;
+
+    background-color: #f7f5ed;
+    box-shadow: 5px 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* パンくずをアドレスバー風にする */
+html[data-theme="classic"] .breadcrumb {
+    padding: 7px 10px;
+    border: 1px inset #aca899;
+    background-color: #ffffff;
+}
+
+/* アプリカードをウィンドウ風にする */
+html[data-theme="classic"] .card {
+    position: relative;
+    padding-top: 48px;
+    overflow: hidden;
+}
+
+html[data-theme="classic"] .card::before {
+    content: "アプリケーション";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    min-height: 32px;
+    padding: 7px 10px;
+
+    background: linear-gradient(
+        to bottom,
+        #3c9cff,
+        #0054e3 55%,
+        #003caa
+    );
+
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: left;
+    text-shadow: 1px 1px #00317d;
+}
+
+/* 立体的なボタン */
+html[data-theme="classic"] .card-button,
+html[data-theme="classic"] .main-button,
+html[data-theme="classic"] .sub-button {
+    border: 1px solid #003c9d;
+    border-radius: 3px;
+
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #ece9d8
+    );
+
+    color: #102a56;
+    box-shadow:
+        inset 1px 1px 0 #ffffff,
+        inset -1px -1px 0 #aca899,
+        1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="classic"] .card-button {
+    padding: 8px 18px;
+}
+
+/* 既存フッターをタスクバーとして使用 */
+html[data-theme="classic"] .site-footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+
+    height: 48px;
+    margin: 0;
+    padding: 7px 14px;
+
+    border-top: 2px solid #57a5ff;
+    background: linear-gradient(
+        to bottom,
+        #2588f5,
+        #0867df 45%,
+        #0050bd
+    );
+    color: #ffffff;
+}
+
+/* 通常フッター内容はクラシック時だけ非表示 */
+html[data-theme="classic"] .footer-inner,
+html[data-theme="classic"] .copyright {
+    display: none;
+}
+
+/* 左下のメニューボタン */
+html[data-theme="classic"] .site-footer::before {
+    content: "▶ メニュー";
+    display: inline-block;
+
+    min-width: 130px;
+    padding: 7px 18px;
+    border: 1px solid #1e6c19;
+    border-radius: 7px 12px 12px 7px;
+
+    background: linear-gradient(
+        to bottom,
+        #74cf57,
+        #35a52e 55%,
+        #217e20
+    );
+
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 1px 1px #1c671a;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+/* 右下の時計風表示 */
+html[data-theme="classic"] .site-footer::after {
+    content: "Ready.   10:20";
+    float: right;
+    padding: 7px 14px;
+
+    border-left: 1px solid #0b3e9b;
+    background-color: rgba(38, 143, 231, 0.75);
+
+    color: #ffffff;
+    font-size: 13px;
+}
+
+/* スマホではデスクトップ背景を簡略化 */
+@media screen and (max-width: 800px) {
+    html[data-theme="classic"] body {
+        padding: 12px 8px 62px;
+        background: linear-gradient(
+            to bottom,
+            #73bff0 0 24%,
+            #66b844 24% 100%
+        );
+    }
+
+    html[data-theme="classic"] .site-header {
+        padding: 52px 12px 14px;
+    }
+
+    html[data-theme="classic"] .container {
+        padding: 16px 12px;
+    }
+
+    html[data-theme="classic"] .site-header::after {
+        content: "—  □  ×";
+    }
+
+    html[data-theme="classic"] .site-footer::before {
+        min-width: auto;
+        padding: 7px 12px;
+    }
 }
