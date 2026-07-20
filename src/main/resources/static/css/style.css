@@ -1190,7 +1190,7 @@ html[data-theme="classic"] .card {
 }
 
 html[data-theme="classic"] .card::before {
-    content: "アプリケーション";
+    content: "▣  " attr(data-window-title);
     position: absolute;
     top: 0;
     right: 0;
@@ -1328,4 +1328,64 @@ html[data-theme="classic"] .site-footer::after {
         min-width: auto;
         padding: 7px 12px;
     }
+}
+
+html[data-theme="classic"] .card::after {
+    content: "—  □  ×";
+    position: absolute;
+    top: 4px;
+    right: 5px;
+
+    padding: 2px 5px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 3px;
+
+    background: linear-gradient(
+        to bottom,
+        #62b2ff,
+        #126ce0
+    );
+
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 18px;
+    text-shadow: 1px 1px #003c9d;
+}
+
+html[data-theme="classic"] .card-image {
+    border: 2px inset #aca899;
+    border-radius: 0;
+    background-color: #ffffff;
+    box-shadow: none;
+}
+
+html[data-theme="classic"] .card-link:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        inset 0 1px 0 #ffffff,
+        4px 5px 8px rgba(0, 0, 0, 0.28);
+}
+
+html[data-theme="classic"] .card-link:hover::before {
+    background: linear-gradient(
+        to bottom,
+        #59abff,
+        #0869e5 55%,
+        #0044bd
+    );
+}
+
+html[data-theme="classic"] .card-button {
+    display: block;
+    width: fit-content;
+    min-width: 140px;
+    margin: 18px auto 0;
+    padding: 8px 18px;
+    text-align: center;
+}
+
+html[data-theme="classic"] .card-button::after {
+    content: "";
 }
