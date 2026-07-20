@@ -890,3 +890,9 @@ nav a:hover {
         white-space: normal;
     }
 }
+
+.input-help {
+    margin: -4px 0 4px;
+    color: #637083;
+    font-size: 13px;
+}

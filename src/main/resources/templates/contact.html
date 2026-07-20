@@ -20,33 +20,87 @@
 		<section class="page-heading">
 			<h1>お問い合わせ・感想フォーム</h1>
 			<p>
-				このページでは、ポートフォリオサイトや制作物への感想を送信できるフォームを作成する予定です。
-				現在は画面構成を作成中です。
+				ポートフォリオサイトや制作物についてのご感想、
+				お問い合わせを受け付けています。
+				入力内容をご確認のうえ、送信してください。
 			</p>
 		</section>
 
 		<section class="content-section">
 			<h2>フォーム</h2>
 
-			<form class="contact-form" th:action="@{/contact}" th:object="${contactForm}" method="post">
+			<form class="contact-form"
+				  th:action="@{/contact}"
+				  th:object="${contactForm}"
+				  method="post">
 
 				<label for="name">お名前</label>
-				<input type="text" id="name" th:field="*{name}" placeholder="例：山田 太郎">
-				<p class="error-message" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+				<input type="text"
+					   id="name"
+					   th:field="*{name}"
+					   maxlength="100"
+					   autocomplete="name"
+					   placeholder="例：山田 太郎">
+
+				<p class="error-message"
+				   th:if="${#fields.hasErrors('name')}"
+				   th:errors="*{name}">
+					お名前のエラー
+				</p>
 
 				<label for="email">メールアドレス</label>
-				<input type="email" id="email" th:field="*{email}" placeholder="例：sample@example.com">
-				<p class="error-message" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+				<input type="email"
+					   id="email"
+					   th:field="*{email}"
+					   maxlength="255"
+					   autocomplete="email"
+					   placeholder="例：sample@example.com">
+
+				<p class="error-message"
+				   th:if="${#fields.hasErrors('email')}"
+				   th:errors="*{email}">
+					メールアドレスのエラー
+				</p>
 
 				<label for="subject">件名</label>
-				<input type="text" id="subject" th:field="*{subject}" placeholder="例：ポートフォリオについて">
-				<p class="error-message" th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}"></p>
+				<input type="text"
+					   id="subject"
+					   th:field="*{subject}"
+					   maxlength="50"
+					   placeholder="例：ポートフォリオについて">
+
+				<p class="input-help">
+					50文字以内で入力してください。
+				</p>
+
+				<p class="error-message"
+				   th:if="${#fields.hasErrors('subject')}"
+				   th:errors="*{subject}">
+					件名のエラー
+				</p>
 
 				<label for="message">メッセージ</label>
-				<textarea id="message" th:field="*{message}" rows="6" placeholder="感想やお問い合わせ内容を入力してください"></textarea>
-				<p class="error-message" th:if="${#fields.hasErrors('message')}" th:errors="*{message}"></p>
+				<textarea id="message"
+						  th:field="*{message}"
+						  rows="6"
+						  maxlength="1000"
+						  placeholder="感想やお問い合わせ内容を入力してください"></textarea>
 
-				<button type="submit" class="main-button">送信する</button>
+				<p class="input-help">
+					1000文字以内で入力してください。
+				</p>
+
+				<p class="error-message"
+				   th:if="${#fields.hasErrors('message')}"
+				   th:errors="*{message}">
+					メッセージのエラー
+				</p>
+
+				<button type="submit"
+						class="main-button">
+					送信する
+				</button>
+
 			</form>
 		</section>
 
