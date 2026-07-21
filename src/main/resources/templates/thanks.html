@@ -2,56 +2,99 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ja">
 
 <head>
-	<meta charset="UTF-8">
-	<title th:text="${pageTitle}">送信完了</title>
-	<link rel="stylesheet" th:href="@{/css/style.css}">
-	<meta name="viewport"
-		  content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <title th:text="${pageTitle}">
+        送信完了
+    </title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
+	<!-- PRGパターンで表示するお問い合わせ送信完了画面です。 -->
 	<header th:replace="~{fragments :: header}"></header>
 
-	<main class="container">
-		
-		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
-		
-		<section class="page-heading">
-			<h1>送信完了</h1>
-			<p th:if="${contactName != null}">
-				<span th:text="${contactName}"></span>さん、
-				お問い合わせありがとうございます。
-			</p>
-			
-			<p th:unless="${contactName != null}">
-				お問い合わせを受けました。
-			</p>
-			
-			<p>
-				入力いただいた内容を保存しました。
-			</p>
-		</section>
-		
-		<section class="content-section">
-			<h2>送信が完了しました</h2>
-			
-			<p>
-				ポートフォリオサイトをご覧いただき、
-				ありがとうございます。
-			</p>
-			
-			<a class="main-button" th:href="@{/}">
-				ホームへ戻る
-			</a>
-			
-			<a class="sub-button" th:href="@{/apps}">
-				制作物を見る。
-			</a>
-		</section>
-	</main>
-	<footer th:replace="~{fragments :: footer}"></footer>
+    <main class="container success-page">
+
+        <nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
+
+        <section class="page-heading success-heading">
+            <h1>送信完了</h1>
+
+            <p>
+                お問い合わせフォームの送信が完了しました。
+            </p>
+        </section>
+
+		<!-- Flash Attributeに名前がある場合だけ、個別のお礼を表示します。 -->
+		<section class="content-section success-dialog"
+                 role="status"
+                 aria-labelledby="success-title">
+
+            <div class="success-dialog-title">
+                お問い合わせ
+            </div>
+
+            <div class="success-dialog-content">
+
+                <div class="success-icon"
+                     aria-hidden="true">
+                    ✓
+                </div>
+
+                <div class="success-message">
+
+                    <h2 id="success-title">
+                        送信が完了しました
+                    </h2>
+
+                    <p th:if="${contactName != null}">
+                        <span th:text="${contactName}"></span>さん、
+                        お問い合わせありがとうございます。
+                    </p>
+
+                    <p th:unless="${contactName != null}">
+                        お問い合わせありがとうございます。
+                    </p>
+
+                    <p>
+                        入力いただいた内容を保存しました。
+                    </p>
+
+                    <p>
+						ポートフォリオサイトをご覧いただき、
+						ありがとうございます。
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="success-actions">
+
+                <a class="main-button"
+                   th:href="@{/}">
+                    ホームへ戻る
+                </a>
+
+                <a class="sub-button"
+                   th:href="@{/apps}">
+                    制作物を見る
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer th:replace="~{fragments :: footer}"></footer>
 
 </body>
-
 </html>

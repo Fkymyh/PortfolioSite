@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width-device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title th:text="${pageTitle}">
 		お問い合わせ詳細
@@ -14,15 +14,16 @@
 
 <body>
 
+	<!-- 一覧で選択したお問い合わせの全文を表示します。 -->
 	<header th:replace="~{fragments :: header}"></header>
 
 	<main class="container">
 
 		<section class="page-heading">
 			<h1>お問い合わせ詳細</h1>
-			<o>
+			<p>
 				送信されたお問い合わせ内容を確認します。
-			</o>
+			</p>
 		</section>
 
 		<section class="content-section">
@@ -73,7 +74,7 @@
 				</p>
 			</div>
 
-			<div claas="message-actions">
+			<div class="message-actions">
 				<a class="main-button" th:href="@{/admin/messages}">
 					一覧へ戻る
 				</a>

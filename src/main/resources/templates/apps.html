@@ -10,11 +10,12 @@
 
 <body>
 
+	<!-- 制作物の概要と公開状況を一覧で表示します。 -->
 	<header th:replace="~{fragments :: header}"></header>
 	
 	<main class="container">
 
-	<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
+		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
 
 		<section class="page-heading">
 			<h1>アプリ紹介</h1>
@@ -24,6 +25,7 @@
 			</p>
 		</section>
 
+		<!-- 各アプリの詳細ページ・GitHub・配布ページへの導線 -->
 		<section class="app-list">
 
 			<div class="app-card" id="stage-layout">
@@ -36,8 +38,8 @@
 						機材をドラッグして配置し、会場レイアウトを視覚的に作成できます。
 					</p>
 					<a class="main-button" th:href="@{/apps/stage-layout}">詳しく見る</a>
-					<a class="sub-button" href="https://github.com/Fkymyh/StageLayout-Designer" target="_blank">GitHub</a>
-					<a class="sub-button" href="https://github.com/Fkymyh/StageLayout-Designer/releases/latest" target="_blank">ダウンロード</a>
+					<a class="sub-button" href="https://github.com/Fkymyh/StageLayout-Designer" target="_blank" rel="noopener noreferrer">GitHub</a>
+					<a class="sub-button" href="https://github.com/Fkymyh/StageLayout-Designer/releases/latest" target="_blank" rel="noopener noreferrer">ダウンロード</a>
 				</div>
 			</div>
 
@@ -70,11 +72,11 @@
 					<h2>映画検索Webアプリ</h2>
 					<p>
 						映画検索APIを使って、映画情報の検索やお気に入り管理を行うWebアプリです。
-						            自分の好きな映画という関心から制作しました。
-						            実行環境を用意して起動することで動作します。
+						自分の好きな映画という関心から制作しました。
+						実行環境を用意して起動することで動作します。
 					</p>
 					<a class="main-button" th:href="@{/apps/movie-manager}">
-					詳しく見る
+						詳しく見る
 					</a>
 					
 					<a class="sub-button"

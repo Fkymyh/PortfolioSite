@@ -3,6 +3,7 @@
 
 <body>
 
+	<!-- 全ページで共有するヘッダー。現在ページはcurrentPageで強調します。 -->
 	<header class="site-header" th:fragment="header">
 		<div class="logo">
 			<a th:href="@{/}" class="logo-link">制作物紹介ポートフォリオ</a>
@@ -43,6 +44,7 @@
 		<script th:src="@{/js/theme.js}"></script>
 	</header>
 
+	<!-- Controllerから受け取った階層を表示する共通パンくずリストです。 -->
 	<nav class="breadcrumb" th:fragment="breadcrumb(breadcrumbs)" aria-label="パンくずリスト">
 
 		<ol class="breadcrumb-list">
@@ -62,13 +64,14 @@
 					</span>
 				</span>
 
-				<span th:if="${stat.last}" th:text="${item}" aria-curent="page">
+				<span th:if="${stat.last}" th:text="${item}" aria-current="page">
 				</span>
 			</li>
 		</ol>
 
 	</nav>
 
+	<!-- 全ページで共有するフッター。クラシック時はタスクバー風になります。 -->
 	<footer class="site-footer" th:fragment="footer">
 		<div class="footer-inner">
 			<div class="footer-info">

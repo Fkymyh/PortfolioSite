@@ -10,6 +10,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.portfolio.repository.ContactMessageRepository;
 
+/**
+ * 管理者向けのお問い合わせ一覧、詳細、削除処理を担当します。
+ */
 @Controller
 public class AdminController {
 
@@ -20,6 +23,7 @@ public class AdminController {
 		this.contactMessageRepository = contactMessageRepository;
 	}
 
+	/** 新しいお問い合わせから順に一覧表示します。 */
 	@GetMapping("/admin/messages")
 	public String adminMessages(Model model) {
 		model.addAttribute(
@@ -41,6 +45,7 @@ public class AdminController {
 		return "admin-messages";
 	}
 
+	/** 指定されたお問い合わせの詳細を表示します。 */
 	@GetMapping("/admin/messages/{id}")
 	public String adminMessageDetail(
 			@PathVariable Long id,
@@ -71,6 +76,7 @@ public class AdminController {
 			});
 	}
 
+	/** 削除前の確認画面を表示します。 */
 	@GetMapping("/admin/messages/{id}/delete")
 	public String confirmDeleteMessage(
 			@PathVariable Long id,
@@ -101,6 +107,7 @@ public class AdminController {
 			});
 	}
 
+	/** 確認済みのお問い合わせを削除し、一覧へ戻します。 */
 	@PostMapping("/admin/messages/{id}/delete")
 	public String deleteMessage(
 			@PathVariable Long id,

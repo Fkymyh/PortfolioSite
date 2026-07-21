@@ -9,6 +9,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.PrePersist;
 
+/**
+ * データベースへ保存するお問い合わせ情報です。
+ */
 @Entity
 public class ContactMessage {
 	
@@ -27,6 +30,7 @@ public class ContactMessage {
 	
 	private LocalDateTime createdAt;
 	
+	/** 初回保存の直前に受付日時を自動設定します。 */
 	@PrePersist
 	public void setCreatedAt() {
 		createdAt = LocalDateTime.now();

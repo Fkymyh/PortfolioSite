@@ -12,9 +12,10 @@
 
 <body>
 
+	<!-- 照明機材管理アプリの背景、機能、技術、公開状況を紹介します。 -->
 	<header th:replace="~{fragments :: header}"></header>
 
-	<main class="container">
+	<main class="container detail-page">
 
 		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
 
@@ -27,6 +28,7 @@
 			</p>
 		</section>
 
+		<!-- スクリーンショットと制作概要 -->
 		<div class="detail-overview-grid">
 
 			<section class="content-section detail-screen-section">
@@ -68,6 +70,7 @@
 				</section>
 			</div>
 		</div>
+		<!-- 主な機能とGitHubへの導線 -->
 		<div class="detail-info-grid">
 			<section class="content-section">
 				<h2>主な機能</h2>

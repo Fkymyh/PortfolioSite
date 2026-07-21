@@ -2,110 +2,206 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ja">
 
 <head>
-	<meta charset="UTF-8">
-	<title th:text="${pageTitle}">お問い合わせ</title>
-	<link rel="stylesheet" th:href="@{/css/style.css}">
-	<meta name="viewport"
-		  content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <title th:text="${pageTitle}">
+        お問い合わせ
+    </title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
+	<!-- 入力値はContactFormへバインドし、サーバー側でも検証します。 -->
 	<header th:replace="~{fragments :: header}"></header>
 
-	<main class="container">
+    <main class="container contact-page">
 
-		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
+        <nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
 
-		<section class="page-heading">
-			<h1>お問い合わせ・感想フォーム</h1>
-			<p>
-				ポートフォリオサイトや制作物についてのご感想、
-				お問い合わせを受け付けています。
-				入力内容をご確認のうえ、送信してください。
-			</p>
-		</section>
+        <section class="page-heading contact-heading">
+            <h1>お問い合わせ・感想フォーム</h1>
 
-		<section class="content-section">
-			<h2>フォーム</h2>
+            <p>
+                ポートフォリオサイトや制作物についてのご感想、
+                お問い合わせを受け付けています。
+                入力内容をご確認のうえ、送信してください。
+            </p>
+        </section>
 
-			<form class="contact-form"
-				  th:action="@{/contact}"
-				  th:object="${contactForm}"
-				  method="post">
+		<!-- クラシック時はメール作成画面風に表示するフォーム領域 -->
+		<div class="mail-layout">
 
-				<label for="name">お名前</label>
-				<input type="text"
-					   id="name"
-					   th:field="*{name}"
-					   maxlength="100"
-					   autocomplete="name"
-					   placeholder="例：山田 太郎">
+            <aside class="mail-sidebar"
+                   aria-label="入力について">
 
-				<p class="error-message"
-				   th:if="${#fields.hasErrors('name')}"
-				   th:errors="*{name}">
-					お名前のエラー
-				</p>
+                <div class="mail-sidebar-title">
+                    入力について
+                </div>
 
-				<label for="email">メールアドレス</label>
-				<input type="email"
-					   id="email"
-					   th:field="*{email}"
-					   maxlength="255"
-					   autocomplete="email"
-					   placeholder="例：sample@example.com">
+                <ul>
+                    <li>すべて必須項目です</li>
+                    <li>件名は50文字以内です</li>
+                    <li>メッセージは1000文字以内です</li>
+                    <li>メールアドレスの形式を確認してください</li>
+                </ul>
 
-				<p class="error-message"
-				   th:if="${#fields.hasErrors('email')}"
-				   th:errors="*{email}">
-					メールアドレスのエラー
-				</p>
+                <div class="privacy-panel">
+                    <h2>個人情報について</h2>
 
-				<label for="subject">件名</label>
-				<input type="text"
-					   id="subject"
-					   th:field="*{subject}"
-					   maxlength="50"
-					   placeholder="例：ポートフォリオについて">
+                    <p>
+                        入力された情報は、
+                        お問い合わせへの対応にのみ使用します。
+                    </p>
+                </div>
+            </aside>
 
-				<p class="input-help">
-					50文字以内で入力してください。
-				</p>
+            <section class="content-section mail-window">
 
-				<p class="error-message"
-				   th:if="${#fields.hasErrors('subject')}"
-				   th:errors="*{subject}">
-					件名のエラー
-				</p>
+                <h2 class="mail-window-title">
+                    メッセージの作成
+                </h2>
 
-				<label for="message">メッセージ</label>
-				<textarea id="message"
-						  th:field="*{message}"
-						  rows="6"
-						  maxlength="1000"
-						  placeholder="感想やお問い合わせ内容を入力してください"></textarea>
+				<!-- th:fieldで再表示時の入力値と検証エラーを保持します。 -->
+				<form class="contact-form mail-form"
+                      th:action="@{/contact}"
+                      th:object="${contactForm}"
+                      method="post">
 
-				<p class="input-help">
-					1000文字以内で入力してください。
-				</p>
+                    <div class="mail-toolbar"
+                         aria-label="フォーム操作">
 
-				<p class="error-message"
-				   th:if="${#fields.hasErrors('message')}"
-				   th:errors="*{message}">
-					メッセージのエラー
-				</p>
+                        <span class="mail-tool-decoration"
+                              aria-hidden="true">
+                            📄 新規
+                        </span>
 
-				<button type="submit"
-						class="main-button">
-					送信する
-				</button>
+                        <span class="mail-tool-decoration"
+                              aria-hidden="true">
+                            🔍 確認
+                        </span>
 
-			</form>
-		</section>
+                        <button type="submit"
+                                class="mail-send-button">
+                            ✉ 送信
+                        </button>
+                    </div>
 
-	</main>
-	<footer th:replace="~{fragments :: footer}"></footer>
+                    <div class="mail-field">
+
+                        <label for="name">
+                            お名前
+                        </label>
+
+                        <div class="mail-input-area">
+
+                            <input type="text"
+                                   id="name"
+                                   th:field="*{name}"
+                                   maxlength="100"
+                                   autocomplete="name"
+                                   placeholder="例：山田 太郎">
+
+                            <p class="error-message"
+                               th:if="${#fields.hasErrors('name')}"
+                               th:errors="*{name}">
+                                お名前のエラー
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="mail-field">
+
+                        <label for="email">
+                            メールアドレス
+                        </label>
+
+                        <div class="mail-input-area">
+
+                            <input type="email"
+                                   id="email"
+                                   th:field="*{email}"
+                                   maxlength="255"
+                                   autocomplete="email"
+                                   placeholder="例：sample@example.com">
+
+                            <p class="error-message"
+                               th:if="${#fields.hasErrors('email')}"
+                               th:errors="*{email}">
+                                メールアドレスのエラー
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="mail-field">
+
+                        <label for="subject">
+                            件名
+                        </label>
+
+                        <div class="mail-input-area">
+
+                            <input type="text"
+                                   id="subject"
+                                   th:field="*{subject}"
+                                   maxlength="50"
+                                   placeholder="例：ポートフォリオについて">
+
+                            <p class="input-help">
+                                50文字以内で入力してください。
+                            </p>
+
+                            <p class="error-message"
+                               th:if="${#fields.hasErrors('subject')}"
+                               th:errors="*{subject}">
+                                件名のエラー
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="mail-field mail-message-field">
+
+                        <label for="message">
+                            メッセージ
+                        </label>
+
+                        <div class="mail-input-area">
+
+                            <textarea id="message"
+                                      th:field="*{message}"
+                                      rows="10"
+                                      maxlength="1000"
+                                      placeholder="感想やお問い合わせ内容を入力してください"></textarea>
+
+                            <p class="input-help">
+                                1000文字以内で入力してください。
+                            </p>
+
+                            <p class="error-message"
+                               th:if="${#fields.hasErrors('message')}"
+                               th:errors="*{message}">
+                                メッセージのエラー
+                            </p>
+
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer th:replace="~{fragments :: footer}"></footer>
+
 </body>
-
 </html>

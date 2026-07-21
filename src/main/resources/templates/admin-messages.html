@@ -3,13 +3,14 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, inital-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title th:text="${pageTitle}">お問い合わせ管理</title>
 	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
+	<!-- 認証済み管理者だけが閲覧できるお問い合わせ一覧です。 -->
 	<header th:replace="~{fragments :: header}"></header>
 
 	<main class="container">
@@ -29,6 +30,7 @@
 			成功メッセージ
 		</p>
 
+		<!-- DBから受け取ったお問い合わせを新しい順に表示します。 -->
 		<section class="content-section">
 
 			<div class="admin-heading">

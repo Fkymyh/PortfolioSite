@@ -2,80 +2,248 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ja">
 
 <head>
-	<meta charset="UTF-8">
-	<title th:text="${pageTitle}">学習記録</title>
-	<link rel="stylesheet" th:href="@{/css/style.css}">
-	<meta name="viewport"
-		  content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">学習記録</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
+	<!-- 学習した技術と、制作物での活用例を紹介します。 -->
 	<header th:replace="~{fragments :: header}"></header>
 
-	<main class="container">
+    <main class="container learning-page">
 
-		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
+        <nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
 
-		<section class="page-heading">
-			<h1>学習記録</h1>
-			<p>
-				職業訓練や個人制作を通して学んだ内容をまとめています。
-				単に学んだ技術名だけでなく、制作物のどこで活かしたかも整理しています。
-			</p>
-		</section>
+        <section class="page-heading learning-heading">
+            <h1>学習記録</h1>
 
-		<section class="content-section">
-			<h2>Java</h2>
-			<p>
-				基本文法、オブジェクト指向、コレクション、ファイル入出力などを学習しました。
-				照明機材管理アプリやStage Layout Designerの制作で活用しています。
-			</p>
-		</section>
+            <p>
+                職業訓練や個人制作を通して学んだ内容をまとめています。
+                技術名だけでなく、制作物のどこで活用したかも整理しています。
+            </p>
+        </section>
 
-		<section class="content-section">
-			<h2>Java Swing</h2>
-			<p>
-				デスクトップアプリの画面作成、ボタン操作、マウス操作、描画処理などを学びました。
-				Stage Layout Designerでは、機材の配置、ドラッグ移動、グリッド表示などに使用しています。
-			</p>
-		</section>
+		<!-- 技術の概要一覧と詳細説明 -->
+		<div class="learning-main">
 
-		<section class="content-section">
-			<h2>Servlet / JSP</h2>
-			<p>
-				リクエスト処理、画面遷移、フォーム処理、スコープ、MVCの基本を学びました。
-				Webアプリケーションの基本的な流れを理解するための土台になっています。
-			</p>
-		</section>
+            <section class="skill-control-panel"
+                     aria-labelledby="skill-list-title">
 
-		<section class="content-section">
-			<h2>Spring Framework / Spring Boot</h2>
-			<p>
-				現在、このポートフォリオサイトの制作を通して学習しています。
-				ControllerでURLを受け取り、Thymeleafで画面を表示する構成を実装しています。
-			</p>
-		</section>
+                <h2 id="skill-list-title">
+                    学習した技術
+                </h2>
 
-		<section class="content-section">
-			<h2>Python / Flask</h2>
-			<p>
-				映画検索Webアプリの制作で使用しました。
-				APIを利用した映画検索や、Web画面での表示処理を学びました。
-			</p>
-		</section>
+                <div class="skill-grid">
 
-		<section class="content-section">
-			<h2>Git / GitHub</h2>
-			<p>
-				制作物の履歴管理や公開に使用しています。
-				変更内容をコミットし、GitHub上でソースコードを公開できるようにしています。
-			</p>
-		</section>
+                    <div class="skill-tile">
+                        <span class="skill-icon"
+                              aria-hidden="true">
+                            ☕
+                        </span>
 
-	</main>
-	<footer th:replace="~{fragments :: footer}"></footer>
+                        <span class="skill-tile-text">
+                            <strong>Java</strong>
+                            <small>
+                                基本文法とオブジェクト指向
+                            </small>
+                        </span>
+                    </div>
+
+                    <div class="skill-tile">
+                        <span class="skill-icon"
+                              aria-hidden="true">
+                            🖥️
+                        </span>
+
+                        <span class="skill-tile-text">
+                            <strong>Java Swing</strong>
+                            <small>
+                                デスクトップ画面の設計
+                            </small>
+                        </span>
+                    </div>
+
+                    <div class="skill-tile">
+                        <span class="skill-icon"
+                              aria-hidden="true">
+                            🌐
+                        </span>
+
+                        <span class="skill-tile-text">
+                            <strong>Servlet / JSP</strong>
+                            <small>
+                                Webアプリの基本構造
+                            </small>
+                        </span>
+                    </div>
+
+                    <div class="skill-tile">
+                        <span class="skill-icon"
+                              aria-hidden="true">
+                            🍃
+                        </span>
+
+                        <span class="skill-tile-text">
+                            <strong>Spring Boot</strong>
+                            <small>
+                                MVC・フォーム・DB連携
+                            </small>
+                        </span>
+                    </div>
+
+                    <div class="skill-tile">
+                        <span class="skill-icon"
+                              aria-hidden="true">
+                            🐍
+                        </span>
+
+                        <span class="skill-tile-text">
+                            <strong>Python / Flask</strong>
+                            <small>
+                                APIを利用したWeb開発
+                            </small>
+                        </span>
+                    </div>
+
+                    <div class="skill-tile">
+                        <span class="skill-icon"
+                              aria-hidden="true">
+                            🔧
+                        </span>
+
+                        <span class="skill-tile-text">
+                            <strong>Git / GitHub</strong>
+                            <small>
+                                履歴管理とソース公開
+                            </small>
+                        </span>
+                    </div>
+
+                </div>
+            </section>
+
+            <div class="learning-detail-grid">
+
+                <section class="content-section"
+                         id="java">
+
+                    <h2>Java</h2>
+
+                    <p>
+                        基本文法、オブジェクト指向、
+                        コレクション、ファイル入出力などを
+                        学習しました。
+                    </p>
+
+                    <p class="skill-use">
+                        <strong>制作物での活用：</strong>
+                        照明機材管理アプリと
+                        Stage Layout Designer
+                    </p>
+                </section>
+
+                <section class="content-section"
+                         id="swing">
+
+                    <h2>Java Swing</h2>
+
+                    <p>
+                        デスクトップアプリの画面作成、
+                        ボタン操作、マウス操作、
+                        描画処理などを学びました。
+                    </p>
+
+                    <p class="skill-use">
+                        <strong>制作物での活用：</strong>
+                        機材配置、ドラッグ移動、
+                        グリッド表示
+                    </p>
+                </section>
+
+                <section class="content-section"
+                         id="servlet">
+
+                    <h2>Servlet / JSP</h2>
+
+                    <p>
+                        リクエスト処理、画面遷移、
+                        フォーム処理、スコープ、
+                        MVCの基本を学びました。
+                    </p>
+
+                    <p class="skill-use">
+                        <strong>学習とのつながり：</strong>
+                        Spring Bootを学ぶ前の
+                        Webアプリケーションの土台
+                    </p>
+                </section>
+
+                <section class="content-section"
+                         id="spring">
+
+                    <h2>Spring Framework / Spring Boot</h2>
+
+                    <p>
+                        このポートフォリオサイトの制作を通して、
+                        Controller、Thymeleaf、入力チェック、
+                        Spring Security、Spring Data JPAなどを
+                        学習しています。
+                    </p>
+
+                    <p class="skill-use">
+                        <strong>制作物での活用：</strong>
+                        画面遷移、お問い合わせフォーム、
+                        DB保存、管理画面、ログイン機能
+                    </p>
+                </section>
+
+                <section class="content-section"
+                         id="python">
+
+                    <h2>Python / Flask</h2>
+
+                    <p>
+                        映画検索Webアプリの制作で使用しました。
+                        APIを利用した映画検索や、
+                        Web画面での表示処理を学びました。
+                    </p>
+
+                    <p class="skill-use">
+                        <strong>制作物での活用：</strong>
+                        映画検索、お気に入り管理、
+                        外部APIとの連携
+                    </p>
+                </section>
+
+                <section class="content-section"
+                         id="git">
+
+                    <h2>Git / GitHub</h2>
+
+                    <p>
+                        制作物の変更履歴の管理や、
+                        ソースコードの公開に使用しています。
+                    </p>
+
+                    <p class="skill-use">
+                        <strong>実践していること：</strong>
+                        変更単位でのコミット、
+                        GitHubへのプッシュ、
+                        READMEの作成
+                    </p>
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer th:replace="~{fragments :: footer}"></footer>
 
 </body>
-
 </html>

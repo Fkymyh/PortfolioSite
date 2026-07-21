@@ -4,10 +4,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.portfolio.entity.ContactMessage;
 
-public interface ContactMessageRepository 
-	
-	extends JpaRepository<ContactMessage, Long> {
-		
-	}
-
+/**
+ * お問い合わせ情報の検索・保存・削除を行うRepositoryです。
+ * JpaRepositoryの基本的なCRUD操作を利用します。
+ */
+public interface ContactMessageRepository
+		extends JpaRepository<ContactMessage, Long> {
+}
 

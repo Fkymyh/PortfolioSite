@@ -12,9 +12,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+/**
+ * 公開ページと管理画面のアクセス制御を定義します。
+ */
 @Configuration
 public class SecurityConfig {
 
+	/** 公開ページを許可し、管理画面をADMIN権限で保護します。 */
 	@Bean
 	public SecurityFilterChain securityFilterChain(
 			HttpSecurity http) throws Exception {
@@ -47,12 +51,14 @@ public class SecurityConfig {
 		return http.build();
 	}
 
+	/** 管理者パスワードを安全にハッシュ化するエンコーダーです。 */
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories
 				.createDelegatingPasswordEncoder();
 	}
 
+	/** 環境変数から取得したパスワードで管理者ユーザーを作成します。 */
 	@Bean
 	public UserDetailsService userDetailsService(
 			PasswordEncoder passwordEncoder,

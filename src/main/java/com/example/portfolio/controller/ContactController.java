@@ -16,6 +16,9 @@ import com.example.portfolio.entity.ContactMessage;
 import com.example.portfolio.form.ContactForm;
 import com.example.portfolio.repository.ContactMessageRepository;
 
+/**
+ * お問い合わせフォームの表示、検証、保存、完了画面への遷移を担当します。
+ */
 @Controller
 public class ContactController {
 
@@ -26,6 +29,7 @@ public class ContactController {
 		this.contactMessageRepository = contactMessageRepository;
 	}
 
+	/** 入力前のお問い合わせフォームを表示します。 */
 	@GetMapping("/contact")
 	public String contact(Model model) {
 		model.addAttribute("pageTitle", "お問い合わせ");
@@ -42,6 +46,7 @@ public class ContactController {
 		return "contact";
 	}
 
+	/** 入力値を検証し、問題がなければお問い合わせをDBへ保存します。 */
 	@PostMapping("/contact")
 	public String sendContact(
 			@Valid @ModelAttribute ContactForm contactForm,
@@ -52,6 +57,7 @@ public class ContactController {
 		model.addAttribute("currentPage", "contact");
 
 		if (bindingResult.hasErrors()) {
+			// 入力内容を保持したままフォームへ戻し、エラーを表示します。
 			model.addAttribute(
 				"pageTitle",
 				"お問い合わせ"
@@ -65,6 +71,7 @@ public class ContactController {
 		}
 
 		ContactMessage contactMessage = new ContactMessage();
+		// 画面入力用フォームの値を、永続化するEntityへ詰め替えます。
 		contactMessage.setName(contactForm.getName());
 		contactMessage.setEmail(contactForm.getEmail());
 		contactMessage.setSubject(contactForm.getSubject());
@@ -80,6 +87,7 @@ public class ContactController {
 		return "redirect:/contact/thanks";
 	}
 
+	/** PRGパターンでリダイレクトされた送信完了画面を表示します。 */
 	@GetMapping("/contact/thanks")
 	public String contactThanks(Model model) {
 		model.addAttribute("pageTitle", "送信完了");

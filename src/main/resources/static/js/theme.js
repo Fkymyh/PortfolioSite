@@ -1,4 +1,5 @@
 (() => {
+    // 選択中のテーマをブラウザに保存するためのキーです。
     const storageKey = "portfolio-theme";
     const root = document.documentElement;
 
@@ -10,6 +11,7 @@
         return;
     }
 
+    // 保存済みのテーマを取得します。利用できない環境ではnullを返します。
     const getSavedTheme = () => {
         try {
             return localStorage.getItem(storageKey);
@@ -18,6 +20,7 @@
         }
     };
 
+    // 次回の表示でも同じテーマを使えるように保存します。
     const saveTheme = (theme) => {
         try {
             localStorage.setItem(storageKey, theme);
@@ -26,6 +29,7 @@
         }
     };
 
+    // data-themeとボタン表示をまとめて更新します。
     const applyTheme = (theme) => {
         const isClassic = theme === "classic";
 
@@ -43,6 +47,7 @@
         );
     };
 
+    // 初回表示時は保存値を使い、未保存なら通常モードにします。
     const savedTheme = getSavedTheme();
 
     applyTheme(
@@ -51,6 +56,7 @@
             : "modern"
     );
 
+    // ボタンを押すたびに通常・クラシックを切り替えます。
     button.addEventListener("click", () => {
         const nextTheme =
             root.dataset.theme === "classic"

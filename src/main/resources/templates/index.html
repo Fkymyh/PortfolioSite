@@ -10,12 +10,14 @@
 
 <body>
 
+	<!-- 共通ヘッダー -->
 	<header th:replace="~{fragments :: header}"></header>
 
 	<main class="container">
 
 		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
 
+		<!-- サイトの目的を最初に伝える導入エリア -->
 		<section class="hero">
 			<h1>制作物紹介ポートフォリオ</h1>
 			<p>
@@ -26,6 +28,7 @@
 			</a>
 		</section>
 
+		<!-- 制作物と、クラシック時に表示する補助情報 -->
 		<div class="classic-main-grid">
 
 			<section class="works-section">
