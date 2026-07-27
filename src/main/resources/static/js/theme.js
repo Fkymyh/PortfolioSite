@@ -11,19 +11,19 @@
         return;
     }
 
-    // 保存済みのテーマを取得します。利用できない環境ではnullを返します。
+    // 同じタブ内で選択したテーマを取得します。新しいタブでは未選択になります。
     const getSavedTheme = () => {
         try {
-            return localStorage.getItem(storageKey);
+            return sessionStorage.getItem(storageKey);
         } catch (error) {
             return null;
         }
     };
 
-    // 次回の表示でも同じテーマを使えるように保存します。
+    // ページ移動後も同じテーマを使えるよう、このタブの間だけ保存します。
     const saveTheme = (theme) => {
         try {
-            localStorage.setItem(storageKey, theme);
+            sessionStorage.setItem(storageKey, theme);
         } catch (error) {
             // 保存できなくてもテーマ切り替えは続ける
         }
@@ -47,7 +47,7 @@
         );
     };
 
-    // 初回表示時は保存値を使い、未保存なら通常モードにします。
+    // 新しくサイトを開いた場合は、通常モードから開始します。
     const savedTheme = getSavedTheme();
 
     applyTheme(
