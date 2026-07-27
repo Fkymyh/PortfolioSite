@@ -8,11 +8,11 @@ Spring Bootの学習を目的として、画面遷移、フォーム処理、入
 
 ### 通常モード
 
-![通常モードのホーム画面](docs/images/portfolio-1.png)
+![通常モードのホーム画面](images/Portfolio-1.png)
 
 ### クラシックモード
 
-![クラシックモードのホーム画面](docs/images/portfolio-2.png)
+![クラシックモードのホーム画面](images/portfolio-2.png)
 
 通常モードとクラシックモードを切り替えられ、選択したテーマはブラウザに保存されます。
 
