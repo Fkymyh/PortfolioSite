@@ -62,9 +62,10 @@ public class SecurityConfig {
 	@Bean
 	public UserDetailsService userDetailsService(
 			PasswordEncoder passwordEncoder,
+			 @Value("${portfolio.admin.username}") String adminUsername,
 			@Value("${portfolio.admin.password}") String adminPassword) {
 
-		UserDetails admin = User.withUsername("admin")
+		UserDetails admin = User.withUsername(adminUsername)
 				.password(passwordEncoder.encode(adminPassword))
 				.roles("ADMIN")
 				.build();
