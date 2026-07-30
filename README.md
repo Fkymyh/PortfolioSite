@@ -195,11 +195,11 @@ src/main/resources
 └ application-prod.properties
 
 .dockerignore
-dockerfile
+Dockerfile
 pom.xml
 ```
 
-Dockerイメージのビルドには、リポジトリ直下の`dockerfile`を使用します。ビルド環境と実行環境を分離したマルチステージビルドです。`.dockerignore`では、ビルドに不要なファイルやローカルDBを除外しています。
+Dockerイメージのビルドには、リポジトリ直下の`Dockerfile`を使用します。ビルド環境と実行環境を分離したマルチステージビルドです。`.dockerignore`では、ビルドに不要なファイルやローカルDBを除外しています。
 
 ## ローカル起動
 
@@ -296,7 +296,7 @@ H2 ConsoleとそのSpring Security設定は、`dev`環境だけで有効にな�
 | 項目 | 設定値 |
 | --- | --- |
 | Runtime | Docker |
-| Dockerfile Path | `./dockerfile` |
+| Dockerfile Path | `./Dockerfile` |
 | Health Check Path | `/` |
 | Instance Type | Free |
 
