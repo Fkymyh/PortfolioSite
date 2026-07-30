@@ -12,7 +12,7 @@
 
 	<!-- 制作物の概要と公開状況を一覧で表示します。 -->
 	<header th:replace="~{fragments :: header}"></header>
-	
+
 	<main class="container">
 
 		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
@@ -38,29 +38,33 @@
 						機材をドラッグして配置し、会場レイアウトを視覚的に作成できます。
 					</p>
 					<a class="main-button" th:href="@{/apps/stage-layout}">詳しく見る</a>
-					<a class="sub-button" href="https://github.com/Fkymyh/StageLayout-Designer" target="_blank" rel="noopener noreferrer">GitHub</a>
-					<a class="sub-button" href="https://github.com/Fkymyh/StageLayout-Designer/releases/latest" target="_blank" rel="noopener noreferrer">ダウンロード</a>
+					<a class="sub-button" href="https://github.com/Fkymyh/StageLayout-Designer" target="_blank"
+						rel="noopener noreferrer">GitHub</a>
+					<a class="sub-button" href="https://github.com/Fkymyh/StageLayout-Designer/releases/latest"
+						target="_blank" rel="noopener noreferrer">ダウンロード</a>
 				</div>
 			</div>
 
 			<div class="app-card" id="lighting-management">
 				<div class="app-card-text">
 					<p class="app-label">Java</p>
-					<p class="status-badge status-progress">ソースコード公開中</p>
+					<p class="status-badge">Windows版公開中</p>
 					<h2>照明機材管理アプリ</h2>
 					<p>
-						照明機材の管理を想定して制作したアプリです。
-						機材一覧、検索、現場ごとの機材登録などを行えるようにしました。
-						現在はアプリ化前のため、ソースコードをGitHubで公開しています。
+						照明機材の在庫、現場ごとの使用機材、故障・修理状況を管理する
+						Java Swing製デスクトップアプリです。
+						Windows版をGitHub Releasesで公開しています。
 					</p>
 					<a class="main-button" th:href="@{/apps/lighting-management}">
 						詳しく見る
 					</a>
-					<a class="sub-button"
-					   href="https://github.com/Fkymyh/LightingManagementGUI"
-					   target="_blank"
-					   rel="noopener noreferrer">
-					   GitHub
+					<a class="sub-button" href="https://github.com/Fkymyh/LightingManagementGUI" target="_blank"
+						rel="noopener noreferrer">
+						GitHub
+					</a>
+					<a class="sub-button" href="https://github.com/Fkymyh/LightingManagementGUI/releases/latest"
+						target="_blank" rel="noopener noreferrer">
+						ダウンロード
 					</a>
 				</div>
 			</div>
@@ -78,12 +82,14 @@
 					<a class="main-button" th:href="@{/apps/movie-manager}">
 						詳しく見る
 					</a>
-					
-					<a class="sub-button"
-					   href="https://github.com/Fkymyh/movie-manager"
-					   target="_blank"
-					   rel="noopener noreferrer">
-					   GitHub
+
+					<a class="sub-button" href="https://github.com/Fkymyh/movie-manager" target="_blank"
+						rel="noopener noreferrer">
+						GitHub
+					</a>
+					<a class="main-button" href="https://movie-manager-kv0u.onrender.com/" target="_blank"
+						rel="noopener noreferrer">
+						アプリを起動
 					</a>
 				</div>
 			</div>
