@@ -4,6 +4,16 @@
 
 Spring Bootの学習を目的として、画面遷移、フォーム処理、入力チェック、データベース保存、管理者認証などを実装しています。
 
+## 公開サイト
+
+ポートフォリオサイトをRenderで公開しています。
+
+- [公開サイトを開く](https://fkymyh-portfoliosite.onrender.com/)
+
+Renderの無料インスタンスを使用しているため、アクセスがない状態からの最初の表示には時間がかかる場合があります。
+
+また、公開版ではH2 Databaseを使用しています。問い合わせ内容は永続保存されず、サービスの再起動、停止、再デプロイなどによって消える場合があります。
+
 ## 画面イメージ
 
 ### 通常モード
@@ -40,31 +50,39 @@ Spring Bootの学習を目的として、画面遷移、フォーム処理、入
 - グリッド表示と吸着
 - 保存・読み込み
 - アプリとしてリリース済み
+- GitHub Releasesからダウンロード可能
 
 - [GitHubリポジトリ](https://github.com/Fkymyh/StageLayout-Designer)
 - [最新版をダウンロード](https://github.com/Fkymyh/StageLayout-Designer/releases/latest)
 
 ### 照明機材管理アプリ
 
-照明機材の管理を想定して制作したデスクトップアプリです。
+照明機材の在庫と現場での使用状況を管理するために制作したデスクトップアプリです。
 
-- Java / Swing
-- 機材情報の管理
-- 機材の検索
-- 現在はソースコードを公開中
+- Java 21 / Swing
+- 使用可能在庫の管理
+- 現場ごとの使用機材の管理
+- 故障・修理状況の管理
+- Java実行環境を同梱したWindows版を公開済み
+- GitHub Releasesからダウンロード可能
 
-[GitHubリポジトリ](https://github.com/Fkymyh/LightingManagementGUI)
+- [GitHubリポジトリ](https://github.com/Fkymyh/LightingManagementGUI)
+- [最新版をダウンロード](https://github.com/Fkymyh/LightingManagementGUI/releases/latest)
 
 ### 映画検索Webアプリ
 
-映画検索APIを利用したWebアプリです。
+TMDB APIを利用して映画情報を検索・管理できる、Python / Flask製のWebアプリです。
 
-- Python / Flask
-- 映画情報の検索
-- お気に入り管理
-- ローカル環境で起動して利用可能
+- 映画検索
+- マイリスト
+- 視聴状況の管理
+- 評価と感想の管理
+- Renderで公開済み
 
-[GitHubリポジトリ](https://github.com/Fkymyh/movie-manager)
+- [公開アプリを開く](https://movie-manager-kv0u.onrender.com/)
+- [GitHubリポジトリ](https://github.com/Fkymyh/movie-manager)
+
+公開版は、すべての利用者が同じSQLiteデータを共有するデモ環境です。保存した内容は、サービスの再起動、停止、再デプロイなどによって消える場合があります。個人情報や重要な情報は入力しないでください。
 
 ## 使用技術
 
@@ -83,12 +101,16 @@ Spring Bootの学習を目的として、画面遷移、フォーム処理、入
 - HTML
 - CSS
 - Thymeleaf
+- JavaScript
 
-### 開発環境・管理
+### 開発・公開環境
 
 - Eclipse
 - Maven
 - Git / GitHub
+- Docker
+- Render
+- GitHub Releases
 
 ## 実装した機能
 
@@ -126,7 +148,7 @@ Spring Bootの学習を目的として、画面遷移、フォーム処理、入
 - 問い合わせ削除
 - ログアウト
 
-管理画面は認証済みの管理者だけが閲覧できます。
+管理画面は、認証済みの管理者だけが閲覧できます。
 
 ## 画面構成
 
@@ -162,7 +184,8 @@ src/main/java/com/example/portfolio
 src/main/resources
 ├ static
 │ ├ css
-│ └ images
+│ ├ images
+│ └ js
 ├ templates
 │ ├ error
 │ ├ fragments.html
@@ -170,9 +193,15 @@ src/main/resources
 ├ application.properties
 ├ application-dev.properties
 └ application-prod.properties
+
+.dockerignore
+dockerfile
+pom.xml
 ```
 
-## 起動方法
+Dockerイメージのビルドには、リポジトリ直下の`dockerfile`を使用します。ビルド環境と実行環境を分離したマルチステージビルドです。`.dockerignore`では、ビルドに不要なファイルやローカルDBを除外しています。
+
+## ローカル起動
 
 ### 必要な環境
 
@@ -180,23 +209,30 @@ src/main/resources
 - Maven、またはプロジェクト付属のMaven Wrapper
 - 環境変数を設定できる実行環境
 
-### 管理者パスワードの設定
+### 管理者認証の設定
 
-起動前に、以下の環境変数を設定します。
+管理者IDとパスワードは、ソースコードや設定ファイルへ直接記載せず、以下の環境変数で管理します。
 
 ```text
+PORTFOLIO_ADMIN_USERNAME
 PORTFOLIO_ADMIN_PASSWORD
 ```
 
-実際のパスワードは、設定ファイルやソースコードには保存しません。
+実際のIDやパスワードは、READMEやGitHubへ登録しません。
 
 ### Eclipseから起動する場合
 
 1. プロジェクトをEclipseへインポートします。
 2. `PortfolioSiteApplication.java`を開きます。
 3. `Run Configurations`を開きます。
-4. 環境変数`PORTFOLIO_ADMIN_PASSWORD`を設定します。
-5. 開発時はProgram argumentsへ以下を設定します。
+4. `Environment`タブで、以下の環境変数を設定します。
+
+```text
+PORTFOLIO_ADMIN_USERNAME=ローカル用の管理者ID
+PORTFOLIO_ADMIN_PASSWORD=ローカル用の管理者パスワード
+```
+
+5. `Arguments`タブの`Program arguments`へ、以下を設定します。
 
 ```text
 --spring.profiles.active=dev
@@ -211,14 +247,15 @@ http://localhost:8080/
 
 ### Maven Wrapperから起動する場合
 
-Windowsでは、環境変数を設定してから次を実行します。
+Windowsでは、環境変数を設定してから起動します。
 
 ```powershell
-$env:PORTFOLIO_ADMIN_PASSWORD="任意のパスワード"
+$env:PORTFOLIO_ADMIN_USERNAME="ローカル用の管理者ID"
+$env:PORTFOLIO_ADMIN_PASSWORD="ローカル用の管理者パスワード"
 .\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=dev"
 ```
 
-実際に使用するパスワードをGitHubへ登録しないでください。
+実際に使用する管理者IDやパスワードをGitHubへ登録しないでください。
 
 ## 開発用と公開用の設定
 
@@ -250,16 +287,56 @@ http://localhost:8080/h2-console
 - H2 Console
 - SQLログ
 
-H2 ConsoleとそのSecurity設定は、開発環境だけで有効になります。
+H2 ConsoleとそのSpring Security設定は、`dev`環境だけで有効になります。Renderでは`prod`プロファイルを使用します。
+
+## Renderへのデプロイ
+
+このポートフォリオサイトは、次の設定でRenderへデプロイしています。
+
+| 項目 | 設定値 |
+| --- | --- |
+| Runtime | Docker |
+| Dockerfile Path | `./dockerfile` |
+| Health Check Path | `/` |
+| Instance Type | Free |
+
+Renderでは、以下の環境変数を設定します。
+
+```text
+SPRING_PROFILES_ACTIVE=prod
+PORTFOLIO_ADMIN_USERNAME=公開環境用の管理者ID
+PORTFOLIO_ADMIN_PASSWORD=公開環境用の管理者パスワード
+```
+
+実際の値はGitHubへ登録せず、Renderの環境変数として管理します。
+
+アプリケーションのポート設定は、次のとおりです。
+
+```properties
+server.port=${PORT:8080}
+```
+
+`PORT`はRenderが自動設定します。ローカルなどで`PORT`が設定されていない場合は、既定値として`8080`を使用します。
+
+## H2データベース
+
+ローカル環境と現在の公開版では、H2 Databaseを使用しています。
+
+お問い合わせフォームは、Spring MVC、入力チェック、Spring Data JPA、管理画面などの学習成果を示すためのデモ機能です。
+
+Renderの無料インスタンスではローカルファイルが永続化されないため、H2へ保存した問い合わせ内容は、サービスの再起動、停止、再デプロイなどによって消える場合があります。
+
+将来、問い合わせ内容の永続保存が必要になった場合は、PostgreSQLなどの外部データベースへの移行を検討します。
 
 ## セキュリティ上の対応
 
 - 管理画面をSpring Securityで保護
-- 管理者パスワードを環境変数で管理
+- 管理者IDとパスワードを環境変数で管理
 - 問い合わせ一覧・詳細・削除を管理者だけに制限
-- 削除処理をPOSTで実行
 - CSRF対策を有効化
-- H2 Consoleを開発環境だけで有効化
+- 削除処理をPOSTで実行
+- H2 Consoleを`dev`環境だけで有効化
+- Renderでは`prod`プロファイルを使用
 - 外部リンクへ`noopener noreferrer`を設定
 - DBファイルと問い合わせデータをGit管理から除外
 
@@ -273,25 +350,27 @@ data/
 *.trace.db
 ```
 
-## 今後追加したい機能
+Dockerのビルド対象からも、`.dockerignore`によってローカルDBなどを除外しています。
 
-- Web上への公開
-- 本番環境向けデータベースへの移行
-- 管理画面の検索機能
+## 今後の改善
+
+- 管理画面の検索
 - 問い合わせの既読・未読管理
-- アクセシビリティの改善
+- アクセシビリティ改善
+- 自動テストの拡充
+- エラーログと監視
+- 必要になった場合のPostgreSQL移行
+- 公開中アプリの継続的な改善
 
-## AIの利用について
+## 開発におけるAI活用について
 
-本アプリの制作では、ChatGPTを開発補助ツールとして積極的に利用しました。
+制作するアプリの目的、解決したい問題、必要な機能、画面構成は自分で考えました。
 
-特に、実装方法の相談、コード例の作成、エラー原因の整理、READMEや説明文の作成補助に利用しています。  
-短期間で複数の制作物を形にするため、AIの提案を参考にしながら開発を進めました。
+AIは、実装方法の調査、コードレビュー、エラー原因の整理、READMEや画面説明文の文章整理など、開発を進めるための補助として利用しています。
 
-ただし、制作するアプリのテーマや目的、必要な機能の選定、画面構成、動作確認、修正内容の確認は自分で行っています。  
-また、生成されたコードについても、プロジェクトに合わせて修正し、実際に動作させながら理解を進めています。
+AIから提案された内容はそのまま採用せず、プロジェクトに合わせて実際に動作を確認しています。意図した動作や構成と異なる部分については、内容を確認したうえで修正しました。
 
-現時点ではAIの補助を受けながらの実装が中心ですが、今後はコードの理解を深め、自力で修正・機能追加できる範囲を広げていくことを目標にしています。
+今後は、実装したコードへの理解をさらに深め、自力で設計・実装・修正・説明できる範囲を広げることを目標にしています。
 
 ## 参考資料
 
@@ -299,9 +378,13 @@ data/
 - とほほのWWW入門
 - Spring公式ドキュメント
 - GitHub Docs
+- [Docker公式ドキュメント](https://docs.docker.com/)
+- [Render Docs](https://render.com/docs)
 
 ## 注意事項
 
-このプロジェクトは現在、学習およびポートフォリオ用途で開発しています。
-
-ローカルでH2 Databaseを使用しているため、Web公開時には本番環境向けのデータベースと保存方法を改めて設定する予定です。
+- このプロジェクトは、学習およびポートフォリオ用途で公開しています。
+- Renderの無料インスタンスを使用しているため、アクセスがない状態からの初回表示に時間がかかる場合があります。
+- 問い合わせ内容は永続保存されず、再起動、停止、再デプロイなどによって消える場合があります。
+- 管理者IDやパスワードはGitHubへ登録しません。
+- 公開環境の秘密情報は、Renderの環境変数で管理します。
