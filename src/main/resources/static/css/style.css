@@ -2113,8 +2113,8 @@ html[data-theme="classic"] .skill-control-panel > h2 {
 
 html[data-theme="classic"] .skill-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
 }
 
 html[data-theme="classic"] .skill-tile {
