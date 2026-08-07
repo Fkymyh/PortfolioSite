@@ -2,11 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <title th:text="${pageTitle}">学習記録</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title th:text="${pageTitle}">学習記録</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -14,265 +13,224 @@
 	<!-- 学習した技術と、制作物での活用例を紹介します。 -->
 	<header th:replace="~{fragments :: header}"></header>
 
-    <main class="container learning-page">
+	<main class="container learning-page">
 
-        <nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
+		<nav th:replace="~{fragments :: breadcrumb(${breadcrumbs})}"></nav>
 
-        <section class="page-heading learning-heading">
-            <h1>学習記録</h1>
+		<section class="page-heading learning-heading">
+			<h1>学習記録</h1>
 
-            <p>
-                職業訓練や個人制作を通して学んだ内容をまとめています。
-                技術名だけでなく、制作物のどこで活用したかも整理しています。
-            </p>
-        </section>
+			<p>
+				職業訓練や個人制作を通して学んだ内容をまとめています。
+				技術名だけでなく、制作物のどこで活用したかも整理しています。
+			</p>
+		</section>
 
 		<!-- 技術の概要一覧と詳細説明 -->
 		<div class="learning-main">
 
-            <section class="skill-control-panel"
-                     aria-labelledby="skill-list-title">
+			<section class="skill-control-panel" aria-labelledby="skill-list-title">
 
-                <h2 id="skill-list-title">
-                    学習した技術
-                </h2>
+				<h2 id="skill-list-title">
+					学習した技術
+				</h2>
 
-                <div class="skill-grid">
+				<div class="skill-grid">
 
-                    <div class="skill-tile">
-                        <span class="skill-icon"
-                              aria-hidden="true">
-                            ☕
-                        </span>
+					<a class="skill-tile" href="#java">
+						<span class="skill-icon" aria-hidden="true">☕</span>
+						<span class="skill-tile-text">
+							<strong>Java</strong>
+							<small>基本文法とオブジェクト指向</small>
+						</span>
+					</a>
 
-                        <span class="skill-tile-text">
-                            <strong>Java</strong>
-                            <small>
-                                基本文法とオブジェクト指向
-                            </small>
-                        </span>
-                    </div>
+					<a class="skill-tile" href="#swing">
+						<span class="skill-icon" aria-hidden="true">🖥️</span>
+						<span class="skill-tile-text">
+							<strong>Java Swing</strong>
+							<small>デスクトップ画面の設計</small>
+						</span>
+					</a>
 
-                    <div class="skill-tile">
-                        <span class="skill-icon"
-                              aria-hidden="true">
-                            🖥️
-                        </span>
+					<a class="skill-tile" href="#servlet">
+						<span class="skill icon" aria-hidden="true">🌐</span>
+						<span class="skill-tile-text">
+							<strong>Servlet / JSP</strong>
+							<small>Webアプリの基本構造</small>
+						</span>
+					</a>
 
-                        <span class="skill-tile-text">
-                            <strong>Java Swing</strong>
-                            <small>
-                                デスクトップ画面の設計
-                            </small>
-                        </span>
-                    </div>
+					<a class="skill-tile" href="#spring">
+						<span class="skill-icon" aria-hidden="true">🍃</span>
+						<span class="skill-tile-text">
+							<strong>Spring Boot</strong>
+							<small>MVC・フォーム・DB連携</small>
+						</span>
+					</a>
 
-                    <div class="skill-tile">
-                        <span class="skill-icon"
-                              aria-hidden="true">
-                            🌐
-                        </span>
+					<a class="skill-tile" href="#sql">
+						<span class="skill-icon" aria-hidden="true">🗄️</span>
+						<span class="skill-tile-text">
+							<strong>SQL / Database</strong>
+							<small>データの保存と操作</small>
+						</span>
+					</a>
 
-                        <span class="skill-tile-text">
-                            <strong>Servlet / JSP</strong>
-                            <small>
-                                Webアプリの基本構造
-                            </small>
-                        </span>
-                    </div>
+					<a class="skill-tile" href="#python">
+						<span class="skill-icon" aria-hidden="true">🐍</span>
+						<span class="skill-tile-text">
+							<strong>Python / Flask</strong>
+							<small>APIを利用したWeb開発</small>
+						</span>
+					</a>
 
-                    <div class="skill-tile">
-                        <span class="skill-icon"
-                              aria-hidden="true">
-                            🍃
-                        </span>
+					<a class="skill-tile" href="#git">
+						<span class="skill-icon" aria-hidden="true">🔧</span>
+						<span class="skill-tile-text">
+							<strong>Git / GitHub</strong>
+							<small>履歴管理とソース公開</small>
+						</span>
+					</a>
 
-                        <span class="skill-tile-text">
-                            <strong>Spring Boot</strong>
-                            <small>
-                                MVC・フォーム・DB連携
-                            </small>
-                        </span>
-                    </div>
+					<a class="skill-tile" href="#deploy">
+						<span class="skill-icon" aria-hidden="true">📦</span>
+						<span class="skill-tile-text">
+							<strong>Docker / Render</strong>
+							<small>アプリのビルドと公開</small>
+						</span>
+					</a>
 
-                    <div class="skill-tile">
-                        <span class="skill-icon"
-                              aria-hidden="true">
-                            🗄️
-                        </span>
+				</div>
+			</section>
 
-                        <span class="skill-tile-text">
-                            <strong>SQL / Database</strong>
-                            <small>
-                                データの保存と操作
-                            </small>
-                        </span>
-                    </div>
+			<div class="learning-content-layout">
 
-                    <div class="skill-tile">
-                        <span class="skill-icon"
-                              aria-hidden="true">
-                            🐍
-                        </span>
+				<nav class="learning-side-menu"
+					 aria-label="学習した技術の目次">
+					<a href="#java"><span aria-hidden="true">☕</span><span>Java</span></a>
+					<a href="#swing"><span aria-hidden="true">🖥️</span><span>Java Swing</span></a>
+					<a href="#servlet"><span aria-hidden="true">🌐</span><span>Servlet / JSP</span></a>
+					<a href="#spring"><span aria-hidden="true">🍃</span><span>Spring Boot</span></a>
+					<a href="#sql"><span aria-hidden="true">🗄️</span><span>SQL</span></a>
+					<a href="#python"><span aria-hidden="true">🐍</span><span>Python / Flask</span></a>
+					<a href="#git"><span aria-hidden="true">🔧</span><span>Git / GitHub</span></a>
+					<a href="#deploy"><span aria-hidden="true">📦</span><span>Docker / Render</span></a>
+				</nav>
 
-                        <span class="skill-tile-text">
-                            <strong>Python / Flask</strong>
-                            <small>
-                                APIを利用したWeb開発
-                            </small>
-                        </span>
-                    </div>
+				<div class="learning-detail-grid">
 
-                    <div class="skill-tile">
-                        <span class="skill-icon"
-                              aria-hidden="true">
-                            🔧
-                        </span>
+				<section class="content-section" id="java">
 
-                        <span class="skill-tile-text">
-                            <strong>Git / GitHub</strong>
-                            <small>
-                                履歴管理とソース公開
-                            </small>
-                        </span>
-                    </div>
+					<h2>Java</h2>
 
-                    <div class="skill-tile">
-                        <span class="skill-icon"
-                              aria-hidden="true">
-                            📦
-                        </span>
+					<p>
+						基本文法、オブジェクト指向、
+						コレクション、ファイル入出力などを
+						学習しました。
+					</p>
 
-                        <span class="skill-tile-text">
-                            <strong>Docker / Render</strong>
-                            <small>
-                                アプリのビルドと公開
-                            </small>
-                        </span>
-                    </div>
+					<p class="skill-use">
+						<strong>制作物での活用：</strong>
+						照明機材管理アプリと
+						Stage Layout Designer
+					</p>
+				</section>
 
-                </div>
-            </section>
+				<section class="content-section" id="swing">
 
-            <div class="learning-detail-grid">
+					<h2>Java Swing</h2>
 
-                <section class="content-section"
-                         id="java">
+					<p>
+						デスクトップアプリの画面作成、
+						ボタン操作、マウス操作、
+						描画処理などを学びました。
+					</p>
 
-                    <h2>Java</h2>
+					<p class="skill-use">
+						<strong>制作物での活用：</strong>
+						機材配置、ドラッグ移動、
+						グリッド表示
+					</p>
+				</section>
 
-                    <p>
-                        基本文法、オブジェクト指向、
-                        コレクション、ファイル入出力などを
-                        学習しました。
-                    </p>
+				<section class="content-section" id="servlet">
 
-                    <p class="skill-use">
-                        <strong>制作物での活用：</strong>
-                        照明機材管理アプリと
-                        Stage Layout Designer
-                    </p>
-                </section>
+					<h2>Servlet / JSP</h2>
 
-                <section class="content-section"
-                         id="swing">
+					<p>
+						リクエスト処理、画面遷移、
+						フォーム処理、スコープ、
+						MVCの基本を学びました。
+					</p>
 
-                    <h2>Java Swing</h2>
+					<p class="skill-use">
+						<strong>学習とのつながり：</strong>
+						Spring Bootを学ぶ前の
+						Webアプリケーションの土台
+					</p>
+				</section>
 
-                    <p>
-                        デスクトップアプリの画面作成、
-                        ボタン操作、マウス操作、
-                        描画処理などを学びました。
-                    </p>
+				<section class="content-section" id="spring">
 
-                    <p class="skill-use">
-                        <strong>制作物での活用：</strong>
-                        機材配置、ドラッグ移動、
-                        グリッド表示
-                    </p>
-                </section>
+					<h2>Spring Framework / Spring Boot</h2>
 
-                <section class="content-section"
-                         id="servlet">
+					<p>
+						このポートフォリオサイトの制作を通して、
+						Controller、Thymeleaf、入力チェック、
+						Spring Security、Spring Data JPAなどを
+						学習しています。
+					</p>
 
-                    <h2>Servlet / JSP</h2>
+					<p class="skill-use">
+						<strong>制作物での活用：</strong>
+						画面遷移、お問い合わせフォーム、
+						DB保存、管理画面、ログイン機能
+					</p>
+				</section>
 
-                    <p>
-                        リクエスト処理、画面遷移、
-                        フォーム処理、スコープ、
-                        MVCの基本を学びました。
-                    </p>
+				<section class="content-section" id="python">
 
-                    <p class="skill-use">
-                        <strong>学習とのつながり：</strong>
-                        Spring Bootを学ぶ前の
-                        Webアプリケーションの土台
-                    </p>
-                </section>
+					<h2>Python / Flask</h2>
 
-                <section class="content-section"
-                         id="spring">
+					<p>
+						映画検索Webアプリの制作で使用しました。
+						APIを利用した映画検索や、
+						Web画面での表示処理を学びました。
+					</p>
 
-                    <h2>Spring Framework / Spring Boot</h2>
+					<p class="skill-use">
+						<strong>制作物での活用：</strong>
+						映画検索、お気に入り管理、
+						外部APIとの連携
+					</p>
+				</section>
 
-                    <p>
-                        このポートフォリオサイトの制作を通して、
-                        Controller、Thymeleaf、入力チェック、
-                        Spring Security、Spring Data JPAなどを
-                        学習しています。
-                    </p>
+				<section class="content-section" id="git">
 
-                    <p class="skill-use">
-                        <strong>制作物での活用：</strong>
-                        画面遷移、お問い合わせフォーム、
-                        DB保存、管理画面、ログイン機能
-                    </p>
-                </section>
+					<h2>Git / GitHub</h2>
 
-                <section class="content-section"
-                         id="python">
+					<p>
+						制作物の変更履歴の管理や、
+						ソースコードの公開に使用しています。
+					</p>
 
-                    <h2>Python / Flask</h2>
+					<p class="skill-use">
+						<strong>実践していること：</strong>
+						変更単位でのコミット、
+						GitHubへのプッシュ、
+						READMEの作成
+					</p>
+				</section>
 
-                    <p>
-                        映画検索Webアプリの制作で使用しました。
-                        APIを利用した映画検索や、
-                        Web画面での表示処理を学びました。
-                    </p>
-
-                    <p class="skill-use">
-                        <strong>制作物での活用：</strong>
-                        映画検索、お気に入り管理、
-                        外部APIとの連携
-                    </p>
-                </section>
-
-                <section class="content-section"
-                         id="git">
-
-                    <h2>Git / GitHub</h2>
-
-                    <p>
-                        制作物の変更履歴の管理や、
-                        ソースコードの公開に使用しています。
-                    </p>
-
-                    <p class="skill-use">
-                        <strong>実践していること：</strong>
-                        変更単位でのコミット、
-                        GitHubへのプッシュ、
-                        READMEの作成
-                    </p>
-                </section>
-				
 				<section class="content-section" id="sql">
 					<h2>SQL / Database</h2>
-					
+
 					<p>
 						テーブル、主キー、検索、登録、更新、削除など、
 						データベースの基本を学習しました。
 					</p>
-					
+
 					<p class="skill-use">
 						<strong>制作物での活用:</strong>
 						ポートフォリオサイトではH2 DatabaseとSpring Data JPA
@@ -280,15 +238,15 @@
 						映画検索WebアプリではSQLiteを使用しています。
 					</p>
 				</section>
-				
+
 				<section class="content-section" id="deploy">
 					<h2>Docker / Render</h2>
-					
+
 					<p>
 						Dockerfileを使ったアプリケーションのビルドと
 						RenderへのWebアプリ公開を経験しました。
 					</p>
-					
+
 					<p class="skill-use">
 						<strong>制作物での活用</strong>
 						Spring Boot製ポートフォリオサイトと
@@ -296,13 +254,16 @@
 					</p>
 				</section>
 
-            </div>
+				</div>
 
-        </div>
+			</div>
 
-    </main>
+		</div>
 
-    <footer th:replace="~{fragments :: footer}"></footer>
+	</main>
+
+	<footer th:replace="~{fragments :: footer}"></footer>
 
 </body>
+
 </html>

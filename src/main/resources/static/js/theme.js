@@ -38,7 +38,7 @@
             : "modern";
 
         button.textContent = isClassic
-            ? "通常モード"
+            ? "モダンモード"
             : "クラシックモード";
 
         button.setAttribute(
@@ -47,7 +47,7 @@
         );
     };
 
-    // 新しくサイトを開いた場合は、通常モードから開始します。
+    // 新しくサイトを開いた場合は、モダンモードから開始します。
     const savedTheme = getSavedTheme();
 
     applyTheme(
@@ -66,4 +66,22 @@
         applyTheme(nextTheme);
         saveTheme(nextTheme);
     });
+
+    // クラシックモードのタスクバーに、閲覧端末の現在時刻を表示します。
+    const updateTaskbarClock = () => {
+        const now = new Date();
+        const currentTime = new Intl.DateTimeFormat("ja-JP", {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+        }).format(now);
+
+        root.style.setProperty(
+            "--taskbar-clock",
+            `"${currentTime}"`
+        );
+    };
+
+    updateTaskbarClock();
+    window.setInterval(updateTaskbarClock, 1000);
 })();
